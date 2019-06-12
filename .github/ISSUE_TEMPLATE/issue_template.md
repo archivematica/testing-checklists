@@ -29,7 +29,7 @@ about: Use this template to create an issue for regression testing
   - [ ] The Bag Verification microservice executes successfully AND
   - [ ] (Optionally) The contents of bag-info.txt are translated to METS
 
-1.3
+#### 1.3
 
 **Severity**: High
 
@@ -42,7 +42,7 @@ about: Use this template to create an issue for regression testing
   - [ ] The Bag Verification microservice executes successfully AND
   - [ ] (Optionally) The contents of bag-info.txt are translated to METS
 
-1.4
+#### 1.4
 
 **Severity**: High
 
@@ -53,7 +53,7 @@ about: Use this template to create an issue for regression testing
 - [ ] process a DSpace transfer using SampleTransfer/DSpaceExport (or one of the zips contained inside). All DSpace-specific microservices should succeed. Validate the METS.
   - [ ] As above; all standard criteria + list out Dspace microservices
 
-1.5
+#### 1.5
 
 **Severity**: Medium
 
@@ -64,7 +64,7 @@ about: Use this template to create an issue for regression testing
 - [ ] process a Disk Image transfer using SampleTransfer/ISODiskImage. Before starting the transfer, add disk image metadata. Validate the METS.
   - [ ] Disk image metadata ends up in the AIP METS.
 
-1.6
+#### 1.6
 
 **Severity**: Low
 
@@ -77,7 +77,7 @@ about: Use this template to create an issue for regression testing
 
 ### 2. Transfer Variants
 
-2.1
+#### 2.1
 
 **Severity**: High
 
@@ -88,7 +88,7 @@ about: Use this template to create an issue for regression testing
 - [ ] Process a transfer using SampleTransfer/DemoTransfer. The AIP METS should contain metadata from the description and rights CSVs.
   - [ ] Submission documentation should be preserved and listed in the AIP METS with the correct file group use (it should be fileGrp USE="submissionDocumentation")
 
-2.2
+#### 2.2
 
 **Severity**: High
 
@@ -99,7 +99,7 @@ about: Use this template to create an issue for regression testing
 - [ ] When a Transfer includes Submission Documentation using a submissionDocumentation directory
   - [ ] Submission documentation should be preserved and listed in the AIP METS with the correct file group use (it should be fileGrp USE="submissionDocumentation")
 
-2.3
+#### 2.3
 
 **Severity**: Medium
 
@@ -110,7 +110,7 @@ about: Use this template to create an issue for regression testing
 - [ ] When a transfer contains descriptive metadata for directories (multi-level) using a metadata.csv (use SampleTransfer/CSVmultiLevel).  
   - [ ] The AIP METS will contain descriptive metadata against for each of the directories described in the metadata.csv
 
-2.4
+#### 2.4
 
 **Severity**: High
 
@@ -121,7 +121,7 @@ about: Use this template to create an issue for regression testing
 - [ ] When a transfer contains descriptive metadata for individual files using a metadata.csv
   - [ ] The AIP METS will contain descriptive metadata against for each of the files described in the metadata.csv
 
-2.5
+#### 2.5
 
 **Severity**: High
 
@@ -133,7 +133,7 @@ about: Use this template to create an issue for regression testing
   - [ ] Originals (denoted in the METS fileSec) should be .dat, .TGA, and .GIF; preservation copies should be .prk, .tif, and .tif; AND
   - [ ] Access copies (denoted in the METS fileSec) should be .bmp, .jpg, and .jpg.
 
-2.6
+#### 2.6
 
 **Severity**: High
 
@@ -145,7 +145,7 @@ about: Use this template to create an issue for regression testing
   - [ ] Originals should be .png, preservation copies should be as per rule, AND
   - [ ] access copies should be .bmps
 
-2.7
+#### 2.7
 
 **Severity**: Medium
 
@@ -157,7 +157,7 @@ about: Use this template to create an issue for regression testing
   - [ ] "Job Normalize service files for access" should run AND
   - [ ] the task output should show that the service files were used to create access copies.
 
-2.8
+#### 2.8
 
 **Severity**: Medium
 
@@ -168,7 +168,7 @@ about: Use this template to create an issue for regression testing
 - [ ] When a Processing Configuration xml file is included in a Transfer
   - [ ] then the Transfer and Ingest processing will follow the decisions set out in the processing configuration xml file
 
-2.9
+#### 2.9
 
 **Severity**: Low
 
@@ -181,7 +181,7 @@ about: Use this template to create an issue for regression testing
 
 ### 3. Checksums & Integrity Checking
 
-3.1
+#### 3.1
 
 **Severity**: High
 
@@ -195,7 +195,7 @@ about: Use this template to create an issue for regression testing
   - [ ] Stdout/Stderr describe which checksums failed
   - [ ] The Failed Transfer microservice is triggerd
 
-3.2
+#### 3.2
 
 **Severity**: High
 
@@ -208,7 +208,7 @@ about: Use this template to create an issue for regression testing
   - [ ] Then the job "metadata directory checksums" has a COMPLETED status
   - [ ] Stdout/Stderr describe the validation check
 
-3.3
+#### 3.3
 
 **Severity**: High
 
@@ -219,7 +219,7 @@ about: Use this template to create an issue for regression testing
 - [ ] When a SIP includes valid checksums (i.e. created by Archivematica during Transfer processing)
   - [ ] then the microservice "Verify Checksums" has completed sucessfully
 
-3.4
+#### 3.4
 
 **Severity**: High
 
@@ -234,7 +234,7 @@ about: Use this template to create an issue for regression testing
 
 ### 4. Virus scanning & quarantine
 
-4.1
+#### 4.1
 
 **Severity**: High
 
@@ -248,7 +248,7 @@ When the Virus checkingmicroservice is executed
   - [ ] The task Scan for Viruses will fail AND
   - [ ] The microservice will record a failure, because of a virus for each, i.e. it shouldn't report other errors such as MAXSTREAMLENGTH
 
-4.2
+#### 4.2
 
 **Severity**: High
 
@@ -261,7 +261,7 @@ When the Virus checkingmicroservice is executed
 (testing using TestTransfers/virusTests)
   - [ ] The task Scan for Viruses will pass AND
 
-4.3
+#### 4.3
 
 **Severity**: Low
 
@@ -273,7 +273,7 @@ When the Virus checkingmicroservice is executed
   - [ ] The transfer should continue AND
   - [ ] A quarantine PREMIS event should be created with today's date should be created
 
-4.4
+#### 4.4
 
 **Severity**: Low
 
@@ -283,7 +283,7 @@ When the Virus checkingmicroservice is executed
 
 - [ ] Quarantine and unquarantine a “bad” transfer manually
 
-4.5
+#### 4.5
 
 **Severity**: Low
 
@@ -296,7 +296,7 @@ When the Virus checkingmicroservice is executed
   - [ ] After <elapsed_time> the transfer continues and an AIP is created AND
   - [ ] The AIP will contain a quarantine event
 
-4.6
+#### 4.6
 
 **Severity**: Low
 
@@ -310,7 +310,7 @@ When the Virus checkingmicroservice is executed
 
 ### 5. Package Extraction
 
-5.1
+#### 5.1
 
 **Severity**: Medium
 
@@ -326,7 +326,7 @@ When the Virus checkingmicroservice is executed
   - [ ] And a directory (nested directories) are created reflecting the structure of the zip AND
   - [ ] That directory has a timestamp suffix
 
-5.2
+#### 5.2
 
 **Severity**: Medium
 
@@ -339,7 +339,7 @@ When the Virus checkingmicroservice is executed
   - [ ] And the job that it FAILED on matches our expectations AND
   - [ ] The transfer should be in the failed directory
 
-5.3
+#### 5.3
 
 **Severity**: Medium
 
@@ -352,7 +352,7 @@ When the Virus checkingmicroservice is executed
   - [ ] As above, AND
   - [ ] the original package file no longer exists in the downloaded AIP
 
-5.4
+#### 5.4
 
 **Severity**: Medium
 
@@ -367,7 +367,7 @@ When the Virus checkingmicroservice is executed
 
 ### 6. File Identification
 
-6.1
+#### 6.1
 
 **Severity**: High
 
@@ -378,7 +378,7 @@ When the Virus checkingmicroservice is executed
 - [ ] Process a transfer using Siegfried and check file ID results.
   - [ ] Siegfried shows in the PREMIS event detail and the version information is accurate
 
-6.2
+#### 6.2
 
 **Severity**: High
 
@@ -392,7 +392,7 @@ When Siegfried is used for file identification
   - [ ] The "Siegried" tool and version number is described in the PREMIS event detail
   - [ ] The file is described as being of format xxyy
 
-6.3
+#### 6.3
 
 **Severity**: High
 
@@ -405,7 +405,7 @@ When Siegfried is used for file identification
   - [ ] As above, and:
   - [ ] The file is described as being of unknown format
 
-6.4
+#### 6.4
 
 **Severity**: High
 
@@ -416,7 +416,7 @@ When Siegfried is used for file identification
 - [ ] Process a transfer using FIDO and check file ID results.
   - [ ] Fido shows in the PREMIS event detail and the version information is accurate
 
-6.5
+#### 6.5
 
 **Severity**: High
 
@@ -429,7 +429,7 @@ When Siegfried is used for file identification
   - [ ] The "FIDO" tool and version number is described in the PREMIS event detail
   - [ ] The file is described as being of format xxyy
 
-6.6
+#### 6.6
 
 **Severity**: High
 
@@ -443,7 +443,7 @@ When FIDO is used for file identification
   - [ ] The "FIDO" tool and version number is described in the PREMIS event detail
   - [ ] The file is described as being of format xxyy
 
-6.7
+#### 6.7
 
 **Severity**: High
 
@@ -458,7 +458,7 @@ When FIDO is used for file identification
 ~~~~
   - [ ] <premis:eventOutcome> is "positive"
 
-6.8
+#### 6.8
 
 **Severity**: Medium
 
@@ -472,7 +472,7 @@ When FIDO is used for file identification
 
 ### 7. Validation
 
-7.1
+#### 7.1
 
 **Severity**: High
 
@@ -488,7 +488,7 @@ When FIDO is used for file identification
 <premis:eventOutcomeDetailNote>format="TIFF"; version="4.0"; result="Well-Formed and valid"</premis:eventOutcomeDetailNote>
 ~~~~
 
-7.2
+#### 7.2
 
 **Severity**: Medium
 
@@ -504,7 +504,7 @@ When FIDO is used for file identification
 <premis:eventDetailInformation><premis:eventDetail>program="MediaConch"; version="18.03"</premis:eventDetail>
 ~~~~
 
-7.3
+#### 7.3
 
 **Severity**: Low
 
@@ -517,7 +517,7 @@ When FIDO is used for file identification
 
 ### 8. Characterization
 
-8.1
+#### 8.1
 
 **Severity**: High
 
@@ -535,7 +535,7 @@ When FIDO is used for file identification
 
 ### 9. Normalization
 
-9.1
+#### 9.1
 
 **Severity**: High
 
@@ -554,7 +554,7 @@ When FIDO is used for file identification
 - [ ] normalization report output = Preservation normalization attempted "yes" ; Preservation normalization failed "no" ; Preservation conformance check "passed" ; Access normalization attempted "yes" ; Access normalization failed "no" ; Access conformance check "passed"
 - [ ] <premis:eventType>normalization</premis:eventType> is present in the METS for the affected files.
 
-9.2
+#### 9.2
 
 **Severity**: Medium
 
@@ -568,7 +568,7 @@ When FIDO is used for file identification
   - [ ] No
   - [ ] Job: Normalize for thumbnails is "successful", eg. "Successfully normalized  Club-Report.doc for thumbnail"
 
-9.3
+#### 9.3
 
 **Severity**: Medium
 
@@ -581,7 +581,7 @@ When FIDO is used for file identification
 
 ### 10. Sanitize Names & Special Characters
 
-10.1
+#### 10.1
 
 **Severity**: High
 
@@ -599,7 +599,7 @@ Sanitized name: %transferDirectory%objects/lessthan<.txt  ->  %transferDirectory
 ~~~~
   - [ ] premis:eventType "name cleanup" is present in the METS file where <premis:eventDetail> contains value "prohibited characters removed:program="sanitize_names""
 
-10.2
+#### 10.2
 
 **Severity**: High
 
@@ -614,7 +614,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 ~~~~
   - [ ] premis:eventType "name cleanup" is present in the METS file where <premis:eventDetail> contains value "prohibited characters removed:program="sanitize_names""
 
-10.3
+#### 10.3
 
 **Severity**: Low
 
@@ -627,7 +627,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 ### 11. Performance & Resilience
 
-11.1
+#### 11.1
 
 **Severity**: Medium
 
@@ -637,7 +637,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Process multiple transfers at once.
 
-11.2
+#### 11.2
 
 **Severity**: Medium
 
@@ -647,7 +647,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Process a transfer with a large number of files (10,000 ? )
 
-11.3
+#### 11.3
 
 **Severity**: Medium
 
@@ -657,7 +657,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Process a transfer that takes up a large amount of disk space (20Gb?)
 
-11.4
+#### 11.4
 
 **Severity**: Medium
 
@@ -667,7 +667,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] We could add a variety of failure scenarios here -- e.g. if SS is down? or elasticSearch etc?
 
-11.5
+#### 11.5
 
 **Severity**: Medium
 
@@ -677,7 +677,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Failure scenario for Disk Full? perhaps just need a placeholder for this, until Disk Full changes are introduced?
 
-11.6
+#### 11.6
 
 **Severity**: Medium
 
@@ -688,7 +688,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Remove processing information from Transfer screen in the Dashboard
   - [ ] The processing information will no longer appear on the Transfer screen
 
-11.7
+#### 11.7
 
 **Severity**: Medium
 
@@ -699,7 +699,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Remove processing information from Ingest screen in the Dashboard
   - [ ] The processing information will no longer appear on the Ingest screen
 
-11.8
+#### 11.8
 
 **Severity**: Medium
 
@@ -711,7 +711,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 ### 12. Add Metadata
 
-12.1
+#### 12.1
 
 **Severity**: Medium
 
@@ -721,7 +721,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Add and delete rights metadata through the GUI.
 
-12.2
+#### 12.2
 
 **Severity**: High
 
@@ -731,7 +731,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Add and delete descriptive metadata through the GUI.
 
-12.3
+#### 12.3
 
 **Severity**: High
 
@@ -744,7 +744,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 ### 13. Backlog
 
-13.1
+#### 13.1
 
 **Severity**: High
 
@@ -760,7 +760,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
   - [ ] And validated as a BAG
   - [ ] And the transfer METS contains certain information
 
-13.2
+#### 13.2
 
 **Severity**: High
 
@@ -771,7 +771,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Search transfer backlog - perform as many searches as you can, searching on all parameters Any File name File extension Accession number Ingest date SIP UUID
   - [ ] Searches for known items should be successful
 
-13.3
+#### 13.3
 
 **Severity**: Medium
 
@@ -782,7 +782,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Send a delete request (confirm in SS and delete)
   - [ ] Transfer should be removed from backlog screen
 
-13.4
+#### 13.4
 
 **Severity**: n/a
 
@@ -795,7 +795,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 ### 14. Appraisal
 
-14.1
+#### 14.1
 
 **Severity**: High
 
@@ -806,18 +806,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Search Backlog
   - [ ] Searches for known items should be successful
 
-14.1
-
-**Severity**: Low
-
-**Current test coverage**: none
-
-**External tools**: none
-
-- [ ] File list: Show path/hide path
-  - [ ] Toggles path column on and off in file list
-
-14.2
+#### 14.2
 
 **Severity**: Medium
 
@@ -828,7 +817,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Backlog panel: add tags
   - [ ] tags should be visible in backlog pane as well as in dropdown
 
-14.3
+#### 14.3
 
 **Severity**: Medium
 
@@ -839,7 +828,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Backlog panel: Deselect, collapse, expand
   - [ ] users should be able to navigate easily through the backlog pane
 
-14.4
+#### 14.4
 
 **Severity**: Low
 
@@ -850,7 +839,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Analysis panel - Report -
   - [ ] make sure they’re accurate (select/deselect files in backlog pane)
 
-14.5
+#### 14.5
 
 **Severity**: Low
 
@@ -861,7 +850,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Analysis panel - Visualizations
   - [ ] make sure they’re accurate (select/deselect files in backlog pane)
 
-14.6
+#### 14.6
 
 **Severity**: Low
 
@@ -872,7 +861,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Analysis panel - tags
   - [ ] make sure they’re accurate (select/deselect files in backlog pane)
 
-14.7
+#### 14.7
 
 **Severity**: Low
 
@@ -884,7 +873,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
   - [ ] If using DemTransfer there should be hits in Examine Contents
   - [ ] Should be visible in Examine Contents; Credit card numbers
 
-14.8
+#### 14.8
 
 **Severity**: Low
 
@@ -896,7 +885,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
   - [ ] Should be able to expand file preview pane for an image if using Firefox
   - [ ] Non-previewable files (e.g. .doc files) should download for preview
 
-14.9
+#### 14.9
 
 **Severity**: Low
 
@@ -907,9 +896,20 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] File list: Tags - delete tags
   - [ ] Tags should be removed from the backlog view as well as the drop-down.
 
+#### 14.10
+
+**Severity**: Low
+
+**Current test coverage**: none
+
+**External tools**: none
+
+- [ ] File list: Show path/hide path
+  - [ ] Toggles path column on and off in file list
+
 ### 15. ArchivesSpace - Appraisal tab workflow
 
-15.1
+#### 15.1
 
 **Severity**: Low
 
@@ -920,7 +920,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] View resources
   - [ ] Search for known resources by title or resource number
 
-15.2
+#### 15.2
 
 **Severity**: Low
 
@@ -931,7 +931,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Add child record
   - [ ] Should be able to add a child record to an existing resource
 
-15.3
+#### 15.3
 
 **Severity**: Low
 
@@ -942,7 +942,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Add new digital object and drag DO over
   - [ ] Click to add a new digital object; click and drag object over from backlog
 
-15.4
+#### 15.4
 
 **Severity**: Low
 
@@ -952,7 +952,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Edit rights metadata
 
-15.5
+#### 15.5
 
 **Severity**: Low
 
@@ -962,7 +962,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Edit metadata
 
-15.6
+#### 15.6
 
 **Severity**: Low
 
@@ -972,7 +972,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Delete selected
 
-15.7
+#### 15.7
 
 **Severity**: Low
 
@@ -983,7 +983,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Finalize arrangement and Create SIP
   - [ ] (it won’t appear in AS but everything else should look normal, i.e. you should be able to make an AIP)
 
-15.8
+#### 15.8
 
 **Severity**: Low
 
@@ -993,7 +993,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Arrangement pane: Arrange selected items
 
-15.9
+#### 15.9
 
 **Severity**: Low
 
@@ -1003,7 +1003,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Create SIP
 
-15.10
+#### 15.10
 
 **Severity**: Low
 
@@ -1013,7 +1013,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Delete
 
-15.11
+#### 15.11
 
 **Severity**: Low
 
@@ -1025,7 +1025,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 ### 16. Integrations: Access Systems
 
-16.1
+#### 16.1
 
 **Severity**: High
 
@@ -1038,7 +1038,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
   - [ ] Check that logical structMap has been created
   - [ ] Check that levels of description are present after upload to AtoM
 
-16.2
+#### 16.2
 
 **Severity**: High
 
@@ -1048,7 +1048,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Upload DIP - AtoM 2.5
 
-16.3
+#### 16.3
 
 **Severity**: High
 
@@ -1059,7 +1059,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Upload Dip - AtoM 2.5 with levels of description
   - [ ] check AtoM to ensure DIP uploaded successfully
 
-16.4
+#### 16.4
 
 **Severity**: High
 
@@ -1070,7 +1070,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Upload DIP - AtoM 2.5 with slug added to access system ID box
   - [ ] check AtoM to ensure DIP uploaded successfully
 
-16.5
+#### 16.5
 
 **Severity**: Low
 
@@ -1080,7 +1080,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Upload DIP - Binder
 
-16.6
+#### 16.6
 
 **Severity**: Low
 
@@ -1090,7 +1090,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Upload DIP - Binder with identifier added to access system ID box
 
-16.7
+#### 16.7
 
 **Severity**: Low
 
@@ -1100,7 +1100,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Upload DIP - ArchivesSpace 2.5 matching GUI (regular workflow)
 
-16.8
+#### 16.8
 
 **Severity**: Low
 
@@ -1110,7 +1110,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Upload DIP - ArchivesSpace 2.5 with CSV
 
-16.9
+#### 16.9
 
 **Severity**: Low
 
@@ -1123,7 +1123,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 ### 17. Archival Storage
 
-17.1
+#### 17.1
 
 **Severity**: High
 
@@ -1134,7 +1134,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Store AIP
   - [ ] AIP is stored as anticipated if the drop-down is used
 
-17.2
+#### 17.2
 
 **Severity**: Medium
 
@@ -1146,7 +1146,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
   - [ ] AIP is sent to the rejected directory if the drop-down is used AND
   - [ ] The AIP can be accessed from the rejected directory
 
-17.3
+#### 17.3
 
 **Severity**: High
 
@@ -1168,7 +1168,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
   - [ ] Transfer metadata
   - [ ] Transfer metadata (other)
 
-17.4
+#### 17.4
 
 **Severity**: High
 
@@ -1178,7 +1178,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Download AIP
 
-17.5
+#### 17.5
 
 **Severity**: Low
 
@@ -1188,7 +1188,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Make an AIC
 
-17.6
+#### 17.6
 
 **Severity**: High
 
@@ -1199,7 +1199,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Reingest
   - [ ] <premis:eventType>reingestion</premis:eventType> is present in METS
 
-17.7
+#### 17.7
 
 **Severity**: High
 
@@ -1211,7 +1211,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 ### 18. Preservation Planning
 
-18.1
+#### 18.1
 
 **Severity**: High
 
@@ -1221,7 +1221,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Search
 
-18.2
+#### 18.2
 
 **Severity**: High
 
@@ -1231,7 +1231,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Disable rules/commands
 
-18.3
+#### 18.3
 
 **Severity**: High
 
@@ -1241,7 +1241,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Disable tool commands - disable Siegfried; processing config for file ID should automatically be set to “None” if it was set to Siegfried before; Siegfried should not be option in tool drop-down
 
-18.4
+#### 18.4
 
 **Severity**: Medium
 
@@ -1253,7 +1253,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 ### 19. Access
 
-19.1
+#### 19.1
 
 **Severity**: Medium
 
@@ -1265,7 +1265,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 ### 20. Administration
 
-20.1
+#### 20.1
 
 **Severity**: High
 
@@ -1275,7 +1275,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Processing config
 
-20.2
+#### 20.2
 
 **Severity**: Medium
 
@@ -1285,7 +1285,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Clear processing storage locations
 
-20.3
+#### 20.3
 
 **Severity**: High
 
@@ -1295,7 +1295,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Add AtoM/AS configs
 
-20.4
+#### 20.4
 
 **Severity**: High
 
@@ -1305,7 +1305,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] PREMIS agent
 
-20.5
+#### 20.5
 
 **Severity**: High
 
@@ -1316,7 +1316,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] Change language
   - [ ] A sample of microservice tasks and menu items can be verified as correct for either language
 
-20.6
+#### 20.6
 
 **Severity**: Medium
 
@@ -1331,7 +1331,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 ### 21. Users & Permissions
 
-21.1
+#### 21.1
 
 **Severity**: High
 
@@ -1341,7 +1341,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Add users
 
-21.2
+#### 21.2
 
 **Severity**: High
 
@@ -1352,7 +1352,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] When a user does not have administration permissions
   - [ ] Then they should NOT have access to....
 
-21.3
+#### 21.3
 
 **Severity**: High
 
@@ -1363,7 +1363,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 - [ ] When a user has administration permissions
   - [ ] Then they should have access to...
 
-21.4
+#### 21.4
 
 **Severity**: Medium
 
@@ -1375,7 +1375,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 ### 22. Failure Reports & Notifications
 
-22.1
+#### 22.1
 
 **Severity**: High
 
@@ -1385,7 +1385,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] view failure report in dashboard
 
-22.2
+#### 22.2
 
 **Severity**: High
 
@@ -1397,7 +1397,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 ### 23. System Config Options
 
-23.1
+#### 23.1
 
 **Severity**: Medium
 
@@ -1409,7 +1409,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
   - [ ] some screens aren't visible?
   - [ ] the Index AIP microservice... doesn't run?
 
-23.2
+#### 23.2
 
 **Severity**: Low
 
@@ -1422,7 +1422,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 ### 24. Storage Service
 
-24.1
+#### 24.1
 
 **Severity**: High
 
@@ -1432,7 +1432,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Perform a fixity check
 
-24.2
+#### 24.2
 
 **Severity**: High
 
@@ -1442,7 +1442,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] Delete a DIP
 
-24.3
+#### 24.3
 
 **Severity**: Medium
 
@@ -1452,7 +1452,7 @@ Sanitized name: %transferDirectory%objects/ぽっぷるメイル/shift-jis_encod
 
 - [ ] AIP Recovery
 
-24.4
+#### 24.4
 
 **Severity**: Medium
 
