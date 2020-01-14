@@ -40,10 +40,10 @@ When the transfer is processed as a Standard transfer","- [ ] then the Transfer 
 - [ ] The stdout will read Comparison was OK for each checksum file",,High,Excellent,checksum.feature
 4 - Virus scanning & quarantine,4.1,"When a transfer containing a virus is processed (*TestTransfers/virusTests*)
 ","- [ ] The job ""Scan for viruses"" will fail AND
-- [ ] The standard streams will report which files failed virus scanning",,High,None,
+- [ ] The standard streams will report which files failed virus scanning",,High,None,virus.feature
 4 - Virus scanning & quarantine,4.2,When a transfer that does not contain a virus is processed,"- [ ] The job ""Scan for viruses"" will complete successfully
 
-",,High,Excellent,
+",,High,Excellent,virus.feature
 4 - Virus scanning & quarantine,4.3,When a transfer is sent to quarantine and then manually pulled out of quarantine for further processing,"- [ ] The transfer process should continue AND
 - [ ] A quarantine PREMIS event should be created with today's date should be created",,Low,None,
 4 - Virus scanning & quarantine,4.5,Set a # of days for quarantine in processing config and check back once time has elapsed,"- [ ] The transfer registers as in quarantine AND
@@ -424,7 +424,7 @@ When the user selects ""Partial re-ingest"" from the AIP information page","- [ 
 - [ ] the microservices and jobs will follow the selected processing configuration AND
 - [ ] the user can select a different normalization option than the first time (i.e. can create a DIP on demand)
 - [ ] the new AIP over-writes the old one in storage
-- [ ] <premis:eventType>reingestion</premis:eventType> is present in the resulting METS",,High,,
+- [ ] <premis:eventType>reingestion</premis:eventType> is present in the resulting METS",,High,Ok / Implicit (test does not specify DIP creation),reingest-aip.feature
 17 - Archival Storage,17.12,"Given that an AIP has been stored
 
 When the user selects ""Full re-ingest"" from the AIP information page","- [ ] Then the AIP will be sent to the Transfer tab where re-ingest can be approved AND
@@ -432,7 +432,7 @@ When the user selects ""Full re-ingest"" from the AIP information page","- [ ] T
 - [ ] the user can select a different options than the first time (i.e. run file ID if it wasn't run the first time) AND
 - [ ] the new AIP over-writes the old one in storage AND
 - [ ] <premis:eventType>reingestion</premis:eventType> is present in the resulting METS AND
-- [ ] any new PREMIS events are present in the resulting METS",,High,,
+- [ ] any new PREMIS events are present in the resulting METS",,High,Excellent,reingest-aip.feature
 17 - Archival Storage,17.13,"Given that an AIP has been stored
 
 When the user requests deletion of the AIP from the AIP information page","- [ ] Then the status of the AIP will be ""Deletion requested""
@@ -548,4 +548,4 @@ When the user validates the METS file against the PREMIS in METS Toolbox validat
 - [ ] The validation is successful",METS-RW,High,None,
 25 - METS Validation,25.2,"Given that an AIP METS file has been created
 
-When the user validates the METS file against the Archivematica METS profile (created by Evelyn, not hosted anywhere yet...)",- [ ] Then the expected METS and PREMIS sections are present and they match expected values. ,METS-RW,High,None,
+When the user validates the METS file against the Archivematica METS profile (created by Evelyn, not hosted anywhere yet...)",- [ ] Then the expected METS and PREMIS sections are present and they match expected values. ,METS-RW,High,Ok / Implicit (test does not specify all METS/PREMIS sections),transfer-microservices.feature
