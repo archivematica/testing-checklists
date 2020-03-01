@@ -10,7 +10,7 @@ Functional Area,ID,Feature,Then,External tools,Severity,Current Coverage in AMAU
 1 - Transfer Types,1.4,When *SampleTransfer/DSpaceExport* (or one of the zips contained inside) is processed using the DSpace transfer type,"- [ ] The Identify DSpace files microservice executes successfully AND
 - [ ] All standard AIP structure and METS structure criteria apply",,High,None,
 1 - Transfer Types,1.5,When *SampleTransfer/ISODiskImage* is processed using the Disk Image transfer type AND disk image metadata has been added before the transfer is started,"- [ ] The disk image metadata ends up in the AIP METS AND
-- [ ] All standard AIP structure and METS structure criteria apply",tsk_recover (Sleuthkit); unrar-free,Medium,None,
+- [ ] All standard AIP structure and METS structure criteria apply",tsk_recover (Sleuthkit), unrar-free,Medium,None
 1 - Transfer Types,1.6,"When the three Dataverse sample transfers (*SampleTransfers/Dataverse/AStudyOfMyAfternoonDrinks*, *SampleTransfers/Dataverse/NDSAStaffingReport*, *SampleTransfers/Dataverse/XRayScansOfPolyodonSpathula*) are processed using the Dataverse transfer type AND Archivematica is not set to delete packages after extraction","- [ ] Microservice: parse external files succeeds AND
 - [ ] Dataverse metadata is parsed into the METS, e.g. DDI information for author and institution AND
 - [ ] All standard AIP structure and METS structure criteria apply",,Low ,Excellent,create-aip.feature
@@ -30,6 +30,9 @@ Functional Area,ID,Feature,Then,External tools,Severity,Current Coverage in AMAU
 2 - Transfer Variants ,2.8,"Given that a processing configuration XML file is included in the transfer
 
 When the transfer is processed as a Standard transfer","- [ ] then the Transfer and Ingest processing will follow the decisions set out in the processing configuration XML file, rather than the default configuration",,Medium,None,
+2 - Transfer Variants ,2.8,"Given that a processing configuration XML file is included in the transfer
+
+When the transfer is processed as a Zipped Bag transfer","- [ ] then the Transfer and Ingest processing will follow the decisions set out in the processing configuration XML file, rather than the default configuration",,Medium,None,
 2 - Transfer Variants ,2.9,When structural metadata is included in a Transfer using a mets_structmap.xml file,- [ ] the provided structural map will be included in the AIP METs file. ,,Low,None,
 3 - Checksums & Integrity Checking,3.1,"When a transfer includes invalid external checksums 
 (*TestTransfers/fixityCheckShouldFail*)","- [ ] Then the job ""Verify metadata directory checksums"" on the Transfer tab fails AND
@@ -44,16 +47,15 @@ When the transfer is processed as a Standard transfer","- [ ] then the Transfer 
 4 - Virus scanning,4.2,When a transfer that does not contain a virus is processed,"- [ ] The job ""Scan for viruses"" will complete successfully
 
 ",,High,Excellent,virus.feature
-5 - Package Extraction,5.1,When a transfer containing a package (*SampleTransfers/OfficeDocs*) is processed with the extract packages option set to Yes,"- [ ] The job ""Extract contents from compressed archives"" completes successfully AND
-- [ ] a directory with the same name as the package + the timestamp of the unpacking event is created to contain the extracted contents AND
-- [ ] sanitization, virus scanning, and file identification are run on the extracted contents AND
-- [ ] the extracted contents are checked for further packages, which are then extracted &etc. AND
-- [ ] an unpacking PREMIS event is created",,High,Excellent,extract-package.feature
-5 - Package Extraction,5.2,When a transfer containing a broken package (*TestTransfers/broken_package_format_types*) is processed with the extract packages option set to Yes,"- [ ] The job ""Extract contents from compressed archives"" will fail (note: dashboard shows a success; known issue) AND
-- [ ] the standard output indicates which file caused the job to fail AND
-- [ ] the ""Failed transfer"" microservice will be triggered",,Medium,Excellent,extract-package.feature
-5 - Package Extraction,5.3,"When a transfer containing a package (*SampleTransfers/OfficeDocs*) is processed with ""Extract packages"" set to Yes and ""Delete packages after extraction"" set to Yes",- [ ] The resulting AIP will not contain the original package,,Medium,None,
-5 - Package Extraction,5.4,"When a transfer containing a package (*SampleTransfers/OfficeDocs*) is processed with ""Extract packages"" set to Yes and ""Delete packages after extraction"" set to No",- [ ] The resulting AIP will contain the original package,,Medium,None,
+Special Characters,,When a transfer contains files and directories with non-ASCII characters in the file/directory name (*TestTransfers/badNames*),"- [ ] Then the ""Change transfer filenames"" microservice will complete successfully AND
+- [ ] the AIP will contain a name cleanup log AND
+- [ ] a name cleanup PREMIS event will be present in the METS",,High,None,
+Special Characters,,When the transfer name contains non-ASCII characters,"- [ ] Then the ""Change transfer filenames"" microservice will complete successfully AND
+- [ ] the transfer’s name will be changed to use ASCII characters",,Medium,None,
+Special Characters,,When a transfer contains files with non-ASCII characters in the file name as well as a metadata.csv file (*SampleTransfers/DiacriticsTest*),"- [ ] Then the ""Change transfer filenames"" microservice will complete successfully AND
+- [ ] the AIP will contain a name cleanup log AND 
+- [ ] a name cleanup PREMIS event will be present in the METS AND
+- [ ] the METS will contain descriptive metadata for each of the files described in the metadata.csv",,,,
 6 - File Identification,6.1,"Given that Siegfried is set as the file identification tool
 
 When a transfer is processed","- [ ] Then Siegfried is able to identify file formats and versions accurately AND
@@ -89,6 +91,21 @@ When a transfer is processed with ""Perform file format identification (Transfer
 - [ ] the premis:eventDetail indicates that File Extension version=""0.1"" was the tool used",File extension script,High,None,
 6 - File Identification,6.8,"When a transfer is processed with ""Perform file format identification (Transfer)"" set to No","- [ ] Then the standard output for the job ""Identify file format"" will be ""Skipping file format identification"" AND
 - [ ] there will be no format identification PREMIS events for the transfer objects in the METS",,Medium,None,
+5 - Package Extraction,5.1,When a transfer containing a package (*SampleTransfers/OfficeDocs*) is processed with the extract packages option set to Yes,"- [ ] The job ""Extract contents from compressed archives"" completes successfully AND
+- [ ] a directory with the same name as the package + the timestamp of the unpacking event is created to contain the extracted contents AND
+- [ ] sanitization, virus scanning, and file identification are run on the extracted contents AND
+- [ ] the extracted contents are checked for further packages, which are then extracted &etc. AND
+- [ ] an unpacking PREMIS event is created",,High,Excellent,extract-package.feature
+5 - Package Extraction,5.2,When a transfer containing a broken package (*TestTransfers/broken_package_format_types*) is processed with the extract packages option set to Yes,"- [ ] The job ""Extract contents from compressed archives"" will fail (note: dashboard shows a success; known issue) AND
+- [ ] the standard output indicates which file caused the job to fail AND
+- [ ] the ""Failed transfer"" microservice will be triggered",,Medium,Excellent,extract-package.feature
+5 - Package Extraction,5.3,"When a transfer containing a package (*SampleTransfers/OfficeDocs*) is processed with ""Extract packages"" set to Yes and ""Delete packages after extraction"" set to Yes",- [ ] The resulting AIP will not contain the original package,,Medium,None,
+5 - Package Extraction,5.4,"When a transfer containing a package (*SampleTransfers/OfficeDocs*) is processed with ""Extract packages"" set to Yes and ""Delete packages after extraction"" set to No",- [ ] The resulting AIP will contain the original package,,Medium,None,
+8 - Characterization,8.1,When a transfer is processed,"- [ ] Then the ""Characterize and extract metadata"" microservice will run AND
+- [ ] the appropriate characterization tool for a given format will be triggered AND
+- [ ] the characterization tool outputs will be captured in the premis:objectCharacteristicsExtension container
+
+","FFprobe, ExifTool, MediaInfo, FITS, fiwalk (Sleuthkit)",High,TBC - need to check which tools we use now,
 7 - Validation,7.1,When a transfer containing files that can be validated by JHOVE (*SampleTransfers/Images*) is processed,"- [ ] Then the job ""Validate formats"" will complete successfully AND
 - [ ] it will contain accurate validation information for a given format AND
 - [ ] one <premis:eventType>validation</premis:eventType> for each file will be present in the METS AND
@@ -101,11 +118,11 @@ When a transfer is processed with ""Perform file format identification (Transfer
 
 When a transfer containing material that meets the policy criteria is processed with ""Perform policy checks on originals"" set to Yes","- [ ] Then the policy check will complete successfully AND
 - [ ] a validation PREMIS event for the policy check will be created",MediaConch,Low,None,
-8 - Characterization,8.1,When a transfer is processed,"- [ ] Then the ""Characterize and extract metadata"" microservice will run AND
-- [ ] the appropriate characterization tool for a given format will be triggered AND
-- [ ] the characterization tool outputs will be captured in the premis:objectCharacteristicsExtension container
+Examine contents,10.2,"Given that a transfer contains a file containing personally identifying information (*SampleTransfers/DemoTransferCSV*)
 
-","FFprobe, ExifTool, MediaInfo, FITS, fiwalk (Sleuthkit)",High,TBC - need to check which tools we use now,
+When a transfer is processed with ""Examine contents"" set to Yes","- [ ] Then the Examine contents microservice will complete successfully AND
+- [ ] the AIP will contain Bulk Extractor logs
+(See also: 14.7)",Bulk Extractor,Low,None,
 9 - Normalization,9.1,"Given that a transfer contains file formats for which there are preservation and access normalization rules
 When the user selects ""normalize for preservation and access"" at the Normalize job
 ","- [ ] Then the files will be normalized for preservation and access as per the rules AND
@@ -160,14 +177,6 @@ When the user reaches the Normalize job and chooses ""Normalize for Preservation
 
 When a transfer is processed with ""Transcribe files (OCR)"" set to Yes","- [ ] Then the Transcription microservice will complete successfully AND
 - [ ] the AIP will contain a text file of the transcribed contents in the /metadata/OCRfiles/ directory",Tesseract,Medium,,
-10 - Sanitize Names & Special Characters,10.1,When a transfer contains files and directories with non-ASCII characters in the file/directory name (*TestTransfers/badNames*),"- [ ] Then the ""Clean up names"" microservice will complete successfully AND
-- [ ] the AIP will contain a name cleanup log AND
-- [ ] a name cleanup PREMIS event will be present in the METS",,High,None,
-10 - Sanitize Names & Special Characters,10.2,"Given that a transfer contains a file containing personally identifying information (*SampleTransfers/DemoTransferCSV*)
-
-When a transfer is processed with ""Examine contents"" set to Yes","- [ ] Then the Examine contents microservice will complete successfully AND
-- [ ] the AIP will contain Bulk Extractor logs
-(See also: 14.7)",Bulk Extractor,Low,None,
 11 - Performance & Resilience,11.1,When multiple transfers are started at the same time,"- [ ] Then Archivematica should gracefully handle processing multiple transfers at the same time
 (Note: this assumes that the Archivematica machine has enough memory and power to process the transfers; these metrics can be be scaled up significantly as needed.)",,Medium,None,
 11 - Performance & Resilience,11.2,When a transfer with a large number of files is processed,"- [ ] Then Archivematica should process the individual files in the transfer as normal
@@ -400,6 +409,9 @@ When the user clicks on ""Create an AIC""","- [ ] Then a metadata form will open
 When the user clicks on ""Download""",- [ ] Then the AIP should be downloaded,,High,,
 17 - Archival Storage,17.8,"Given that an AIP has been stored and the user has navigated to the AIP storage page
 
+When the user clicks on ""View"" to view the METS file",- [ ] Then the METS file should be downloaded,,Medium,,
+17 - Archival Storage,17.8,"Given that an AIP has been stored and the user has navigated to the AIP storage page
+
 When the user clicks on ""View"" to view the pointer file",- [ ] Then the pointer file should be downloaded,,Medium,,
 17 - Archival Storage,17.9,"Given that an AIP with Dublin Core descriptive metadata has been stored and the user has navigated to the AIP storage page
 
@@ -496,7 +508,9 @@ When the user views the dashboard",- [ ] Then the microservice tasks and interfa
 - [ ] the Agent code should correspond with the version",,Medium,None,
 21 - Users & Permissions,21.1,"Given that a user is an administrator
 
-When the user goes to Administration > Users","- [ ] Then the user will be able to add a new user, edit an existing user, or delete a user",,High,None,
+When the user goes to Administration > Users","- [ ] Then the user will be able to add a new user, edit an existing user, or delete a user AND
+- [ ] the new username can contain non-ASCII characters
+",,High,None,
 21 - Users & Permissions,21.2,"Given that a user is not an administrator
 
 When the user goes to the Administration tab",- [ ] Then the user will not see the Users menu item,,High,,
