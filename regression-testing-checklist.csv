@@ -1,17 +1,20 @@
 Functional Area,ID,Feature,Then,External tools,Severity,Current Coverage in AMAUAT,AMAUAT test
 1 - Transfer Types,1.1,When *SampleTransfers/Images* is processed using the Standard transfer type,"- [ ] All microservices execute successfully
 - [ ] All standard AIP structure and METS structure criteria apply",,High,Excellent,create-aip.feature
-1 - Transfer Types,1.2,When *SampleTransfers/BagTransfer* is processed using the Unzipped Bag transfer type,"- [ ] The Bag Verification microservice executes successfully AND
+1 - Transfer Types,1.2,When *SampleTransfer/ZippedDirectoryTransfers/DemoTransferCSV.zip* is processed using the Zipped Directory transfer type,"- [ ] The Extract zipped bag transfer job executes successfully
+- [ ] All microservices execute successfully
+- [ ] All standard AIP structure and METS structure criteria apply",,,,
+1 - Transfer Types,1.3,When *SampleTransfers/BagTransfer* is processed using the Unzipped Bag transfer type,"- [ ] The Bag Verification microservice executes successfully AND
 - [ ] All standard AIP structure and METS structure criteria apply AND
 - [ ] The contents of bag-info.txt are translated to METS (if any)",,High,Excellent,create-aip.feature
-1 - Transfer Types,1.3,When *SampleTransfer/BagTransfer.zip* is processed using the Zipped Bag transfer type,"- [ ] The Bag Verification microservice executes successfully AND
+1 - Transfer Types,1.4,When *SampleTransfer/BagTransfer.zip* is processed using the Zipped Bag transfer type,"- [ ] The Bag Verification microservice executes successfully AND
 - [ ] All standard AIP structure and METS structure criteria apply AND
 - [ ] The contents of bag-info.txt are parsed into METS (if any)",7zip,High,None,
-1 - Transfer Types,1.4,When *SampleTransfer/DSpaceExport* (or one of the zips contained inside) is processed using the DSpace transfer type,"- [ ] The Identify DSpace files microservice executes successfully AND
+1 - Transfer Types,1.5,When *SampleTransfer/DSpaceExport* (or one of the zips contained inside) is processed using the DSpace transfer type,"- [ ] The Identify DSpace files microservice executes successfully AND
 - [ ] All standard AIP structure and METS structure criteria apply",,High,None,
-1 - Transfer Types,1.5,When *SampleTransfer/ISODiskImage* is processed using the Disk Image transfer type AND disk image metadata has been added before the transfer is started,"- [ ] The disk image metadata ends up in the AIP METS AND
+1 - Transfer Types,1.6,When *SampleTransfer/ISODiskImage* is processed using the Disk Image transfer type AND disk image metadata has been added before the transfer is started,"- [ ] The disk image metadata ends up in the AIP METS AND
 - [ ] All standard AIP structure and METS structure criteria apply",tsk_recover (Sleuthkit), unrar-free,Medium,None
-1 - Transfer Types,1.6,"When the three Dataverse sample transfers (*SampleTransfers/Dataverse/AStudyOfMyAfternoonDrinks*, *SampleTransfers/Dataverse/NDSAStaffingReport*, *SampleTransfers/Dataverse/XRayScansOfPolyodonSpathula*) are processed using the Dataverse transfer type AND Archivematica is not set to delete packages after extraction","- [ ] Microservice: parse external files succeeds AND
+1 - Transfer Types,1.7,"When the three Dataverse sample transfers (*SampleTransfers/Dataverse/AStudyOfMyAfternoonDrinks*, *SampleTransfers/Dataverse/NDSAStaffingReport*, *SampleTransfers/Dataverse/XRayScansOfPolyodonSpathula*) are processed using the Dataverse transfer type AND Archivematica is not set to delete packages after extraction","- [ ] Microservice: parse external files succeeds AND
 - [ ] Dataverse metadata is parsed into the METS, e.g. DDI information for author and institution AND
 - [ ] All standard AIP structure and METS structure criteria apply",,Low ,Excellent,create-aip.feature
 2 - Transfer Variants ,2.1,When a transfer containing descriptive and rights metadata (*SampleTransfer/DemoTransferCSV*) is processed,"- [ ] The AIP METS contains descriptive metadata for each of the objects described in the metadata.csv AND
@@ -34,6 +37,15 @@ When the transfer is processed as a Standard transfer","- [ ] then the Transfer 
 
 When the transfer is processed as a Zipped Bag transfer","- [ ] then the Transfer and Ingest processing will follow the decisions set out in the processing configuration XML file, rather than the default configuration",,Medium,None,
 2 - Transfer Variants ,2.10,When structural metadata is included in a Transfer using a mets_structmap.xml file,- [ ] the provided structural map will be included in the AIP METs file. ,,Low,None,
+2 - Transfer Variants ,2.11,"Given that a transfer contains a premis.xml file (*SampleTransfers/PremisImporter*)
+
+When the premis.xml file is imported into Archivematica after the Objects are ingested","- [ ] Then the PREMIS XML import file Object, Event, and Agent entities are added to the Archivematica AIP METS file AND
+- [ ] the pre-ingest Objects are mapped to new Archivematica Objects using the PREMIS OriginalName property AND
+- [ ] the pre-ingest Event entities retain their original field values AND
+- [ ] the pre-ingest Event entities are not linked to any new Agent entities generated by Archivematica",,,,
+2 - Transfer Variants ,2.12,"Given that a transfer contains an identifiers.json file (*SampleTransfers/DemoTransferCSV*)
+
+When the identifiers.json file is imported into Archivematica after the Objects are ingested",- [ ] Then the identifiers from the JSON file are mapped as objectIdentifiers in the METS file,,,,
 3 - Checksums & Integrity Checking,3.1,"When a transfer includes invalid external checksums 
 (*TestTransfers/fixityCheckShouldFail*)","- [ ] Then the job ""Verify metadata directory checksums"" on the Transfer tab fails AND
 - [ ] the stdout/stderr for the failed job describe which checksums failed AND
@@ -227,7 +239,8 @@ When the user selects Deselect all",- [ ] Then the files should be deselected,,M
 
 When they add a tag to the selected files","- [ ] Then the tags added to the items should be visible in backlog pane as well as in dropdown AND
 - [ ] The tags should be visible in the Analysis pane's Tags tab AND
-- [ ] The tags should be visible in the File list pane",,Medium,None,
+- [ ] The tags should be visible in the File list pane AND
+- [ ] The user can create a SIP using the tags from the Arrangement pane",,Medium,None,
 15 - Appraisal,15.5,"Given that a user has added tags to several items
 
 When they click on the minus sign to remove the tag in the Backlog pane or File list pane","- [ ] Then the tags should be removed AND
@@ -322,52 +335,52 @@ When the user selects the parent record and clicks on ""Finalize arrangement""",
 - [ ] the digital objects should be added to the ArchivesSpace resources/child records as Instances
 - [ ] the material should be added to ArchivesSpace- [ ]- [ ]
 (- [ ]- [ ] if the ArchivesSpace-DSpace integration is configured)",,Low,None,
-16 - Access Systems,16.1,"Given that the AtoM integration is configured
+16 - Access integrations,16.1,"Given that the AtoM integration is configured
 
 When a user uploads a DIP to AtoM",- [ ] Then the digital objects will be uploaded to the AtoM target description,,High,None,
-16 - Access Systems,16.2,"Given that a transfer contains Dublin Core descriptive metadata for individual objects
+16 - Access integrations,16.2,"Given that a transfer contains Dublin Core descriptive metadata for individual objects
 
 When the user uploads the DIP to AtoM","- [ ] Then the descriptive metadata will be uploaded to the appropriate target description in AtoM
 (Note: collection-level description if aggregate metadata provided; object-level description if individual object metadata provided)",,High,None,
-16 - Access Systems,16.3,"Given that a user has arranged digital objects/directories using the Arrangement pane of the Appraisal tab
+16 - Access integrations,16.3,"Given that a user has arranged digital objects/directories using the Arrangement pane of the Appraisal tab
 
 When the DIP is uploaded to AtoM
 ","- [ ] Then the arrangement should be reflected in AtoM AND
 - [ ] a logical structMap reflecting the arrangement will be created in the METS",,Medium,,
-16 - Access Systems,16.4,"Given that a user has applied levels of description to digital objects/directories using the Arrangement pane of the Appraisal tab
+16 - Access integrations,16.4,"Given that a user has applied levels of description to digital objects/directories using the Arrangement pane of the Appraisal tab
 
 When the DIP is uploaded to AtoM
 ","- [ ] Then the levels of description should be reflected in AtoM AND
 - [ ] a logical structMap reflecting the arrangement will be created in the METS",,Medium,None,
-16 - Access Systems,16.5,"Given that a user has added a valid AtoM slug to the access system ID box in the transfer widget
+16 - Access integrations,16.5,"Given that a user has added a valid AtoM slug to the access system ID box in the transfer widget
 
 When the DIP is uploaded to AtoM","- [ ] Then Archivematica should not prompt the user to enter the slug during the Upload DIP microservice AND
 - [ ] the digital objects will be uploaded to the AtoM target description",,Medium,None,
-16 - Access Systems,16.6,"Given that the Binder integration is configured
+16 - Access integrations,16.6,"Given that the Binder integration is configured
 
 When a user creates a DIP and uploads it to Binder",- [ ] Then the DIP will be uploaded to the target artwork or technology record in Binder,,Low,None,
-16 - Access Systems,16.7,"Given that a user has added a valid Binder artwork or technology record identifier to the access system ID box in the transfer widget
+16 - Access integrations,16.7,"Given that a user has added a valid Binder artwork or technology record identifier to the access system ID box in the transfer widget
 
 When the DIP is uploaded to Binder","- [ ] Then Archivematica should not prompt the user to enter the artwork or technology record identifier during the Upload DIP microservice AND
 - [ ] the DIP will be uploaded to the Binder target description",,Low,None,
-16 - Access Systems,16.8,"Given that the ArchivesSpace integration is configured
+16 - Access integrations,16.8,"Given that the ArchivesSpace integration is configured
 
 When the user selects ""Upload DIP to ArchivesSpace"" from the Upload DIP microservice drop-down
 ","- [ ] Then the user will be taken to the ArchivesSpace matching GUI AND
 - [ ] the user can search for and navigate through resources AND
 - [ ] the user can pair digital objects to resources",,Low,None,
-16 - Access Systems,16.9,"Given that the user has paired a digital object to an ArchivesSpace resource
+16 - Access integrations,16.9,"Given that the user has paired a digital object to an ArchivesSpace resource
 
 When the user confirms that matching is complete
 ",- [ ] Then the DIP information will be attached to the ArchivesSpace resource as an Instance,,Low,None,
-16 - Access Systems,16.10,"Given that the transfer includes an ArchivesSpace matching CSV with valid data
+16 - Access integrations,16.10,"Given that the transfer includes an ArchivesSpace matching CSV with valid data
 
 When the user selects ""Upload DIP to ArchivesSpace"" from the Upload DIP microservice drop-down
 ","- [ ] Then the user will be taken to the ArchivesSpace matching GUI AND
 - [ ] clicking ""Review matches"" will show a table of the matches defined in the CSV AND
 - [ ] clicking on ""Finish matching"" will send the DIP information to the ArchivesSpace AND
 - [ ] the DIP information will be attached to the ArchivesSpace archival object as an Instance",,Low,None,
-16 - Access Systems,16.11,"Given that a transfer includes a metadata.csv
+16 - Access integrations,16.11,"Given that a transfer includes a metadata.csv
 
 When ""Upload DIP to CONTENTdm"" is selected during the Upload DIP microservice","- [ ] Then a simple.txt or compound.txt file will be added to the DIP AND
 - [ ] the simple.txt/compound.txt file will contain the descriptive metadata from the CSV",,Medium,None,
@@ -434,6 +447,15 @@ When the user selects ""Full re-ingest"" from the AIP information page","- [ ] T
 
 When the user requests deletion of the AIP from the AIP information page","- [ ] Then the status of the AIP will be ""Deletion requested""
 (See 24.2 for other half of the deletion test)",,High,,
+17 - Archival Storage,17.15,"Given that an encrypted storage location exists
+
+When an AIP is stored in the encrypted storage location","- [ ] Then the AIP pointer file will include an encryption event and public key AND
+- [ ] the AIP can be downloaded AND
+- [ ] the AIP can be reingested and downloaded again",,,,
+17 - Archival Storage,17.16,"Given that a storage location has a replicator location connected to it
+
+When an AIP is stored in the storage location","- [ ] Then the AIP will be saved in the storage location AND
+- [ ] a second copy of the AIP will be saved in the replicator location",,,,
 18 - Preservation Planning,18.1,"Given that the file identification command is set to Siegfried
 
 When the user enables Fido","- [ ] Then the Siegfried command will be disabled AND
@@ -454,7 +476,7 @@ When a transfer that calls the command is processed","- [ ] Then the edited vers
 When the user wants to revert to the previous command","- [ ] Then the user can click on ""Revision history"" AND
 - [ ] the user can select the previous version that they would like to revert to AND
 - [ ] the task output and METS will show that the reverted version of the command was run, if applicable",,High,None,
-19 - Access tab,19.1,"Given that some material has been uploaded to AtoM
+19 - Access,19.1,"Given that some material has been uploaded to AtoM
 
 When the user looks at the Access tab","- [ ] Then each item uploaded to AtoM should be present
 - [ ] and the DIP URL should be correct- [ ]- [ ]
@@ -482,21 +504,27 @@ When the user selects ""Add""","- [ ] Then a processing configuration form will 
 20 - Administration,20.6,"Given that a custom processing configuration has been created
 
 When the user selects ""Delete"" for the custom processing configuration",- [ ] Then the custom processing configuration will be deleted,,Low,,
-20 - Administration,20.7,"Given that the user is on the Administration tab > Processing storage usage
+20 - Administration,20.7,"Given that the user is on the Administration tab > Storage locations
+
+When the user increases or decreases the amount of material in a given storage location",- [ ] Then the Used storage value will increase or decrease correspondingly,,,,
+20 - Administration,20.8,"Given that the user is on the Administration tab > Processing storage usage
+
+When the user selects ""Calculate disk usage”",- [ ] Then the disk usage will be calculated and displayed,,Medium,None,
+20 - Administration,20.9,"Given that the user is on the Administration tab > Processing storage usage and has calculated disk usage
 
 When the user selects ""Clear"" for one of the storage locations","- [ ] Then the user will be prompted to confirm the choice AND
 - [ ] the folder will be cleared AND
 - [ ] the usage will reset to 4.0KB",,Medium,None,
-20 - Administration,20.8,"Given that the credentials have been added to the DIP Upload page for an AtoM, Binder, or ArchivesSpace instance
+20 - Administration,20.10,"Given that the credentials have been added to the DIP Upload page for an AtoM, Binder, or ArchivesSpace instance
 
 When the user uploads a DIP to those systems",- [ ] Then DIP upload will be successful,,High,,
-20 - Administration,20.9,"Given that the PREMIS agent identifier value, name, and type have been set
+20 - Administration,20.11,"Given that the PREMIS agent identifier value, name, and type have been set
 
 When the user creates an AIP","- [ ] Then the agent identifier value, name, and type are properly recorded in the METS",,High,Excellent,
-20 - Administration,20.10,"Given that the user has changed a language in Administration > Languages
+20 - Administration,20.12,"Given that the user has changed a language in Administration > Languages
 
 When the user views the dashboard",- [ ] Then the microservice tasks and interface items should appear in that language (translation completeness permitting),,High,None,
-20 - Administration,20.11,When the user checks the version on Administration > Version,"- [ ] Then the version number should be correct AND
+20 - Administration,20.13,When the user checks the version on Administration > Version,"- [ ] Then the version number should be correct AND
 - [ ] the Agent code should correspond with the version",,Medium,None,
 21 - Users & Permissions,21.1,"Given that a user is an administrator
 
