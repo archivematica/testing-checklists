@@ -4,18 +4,18 @@ Functional Area,ID,Feature,Then,External tools,Severity,Current Coverage in AMAU
 1 - Transfer Types,1.2,When *SampleTransfer/ZippedDirectoryTransfers/DemoTransferCSV.zip* is processed using the Zipped Directory transfer type,"- [ ] The Extract zipped bag transfer job executes successfully
 - [ ] All microservices execute successfully
 - [ ] All standard AIP structure and METS structure criteria apply",,,,
-1 - Transfer Types,1.3,When *SampleTransfers/BagTransfer* is processed using the Unzipped Bag transfer type,"- [ ] The Bag Verification microservice executes successfully AND
+1 - Transfer Types,1.3,When *SampleTransfers/UnzippedBag* is processed using the Unzipped Bag transfer type,"- [ ] The 'Verify bag, and restructure for compliance' job in the 'Approve Transfer' microservice executes successfully AND
 - [ ] All standard AIP structure and METS structure criteria apply AND
-- [ ] The contents of bag-info.txt are translated to METS (if any)",,High,Excellent,create-aip.feature
-1 - Transfer Types,1.4,When *SampleTransfer/BagTransfer.zip* is processed using the Zipped Bag transfer type,"- [ ] The Bag Verification microservice executes successfully AND
+- [ ] The contents of bag-info.txt (if any) are parsed into METS",,High,Excellent,create-aip.feature
+1 - Transfer Types,1.4,When *SampleTransfer/ZippedBag.zip* is processed using the Zipped Bag transfer type,"- [ ] The Bag Verification microservice executes successfully AND
 - [ ] All standard AIP structure and METS structure criteria apply AND
-- [ ] The contents of bag-info.txt are parsed into METS (if any)",7zip,High,None,
+- [ ] The contents of bag-info.txt (if any) are parsed into METS",7zip,High,None,
 1 - Transfer Types,1.5,When *SampleTransfer/DSpaceExport* (or one of the zips contained inside) is processed using the DSpace transfer type,"- [ ] The Identify DSpace files microservice executes successfully AND
 - [ ] All standard AIP structure and METS structure criteria apply",,High,None,
 1 - Transfer Types,1.6,When *SampleTransfer/ISODiskImage* is processed using the Disk Image transfer type AND disk image metadata has been added before the transfer is started,"- [ ] The disk image metadata ends up in the AIP METS AND
-- [ ] All standard AIP structure and METS structure criteria apply",tsk_recover (Sleuthkit), unrar-free,Medium,None
+- [ ] All standard AIP structure and METS structure criteria apply","tsk_recover (Sleuthkit), unrar-free",Medium,None,
 1 - Transfer Types,1.7,"When the three Dataverse sample transfers (*SampleTransfers/Dataverse/AStudyOfMyAfternoonDrinks*, *SampleTransfers/Dataverse/NDSAStaffingReport*, *SampleTransfers/Dataverse/XRayScansOfPolyodonSpathula*) are processed using the Dataverse transfer type AND Archivematica is not set to delete packages after extraction","- [ ] Microservice: parse external files succeeds AND
-- [ ] Dataverse metadata is parsed into the METS, e.g. DDI information for author and institution AND
+- [ ] Dataverse metadata is parsed into the METS, e.g. DDI information for title and author AND
 - [ ] All standard AIP structure and METS structure criteria apply",,Low ,Excellent,create-aip.feature
 2 - Transfer Variants ,2.1,When a transfer containing descriptive and rights metadata (*SampleTransfer/DemoTransferCSV*) is processed,"- [ ] The AIP METS contains descriptive metadata for each of the objects described in the metadata.csv AND
 - [ ] The AIP METS contains rights metadata for each of the objects described in the rights.csv",,High,Ok / Implicit,create-aip.feature
@@ -23,26 +23,21 @@ Functional Area,ID,Feature,Then,External tools,Severity,Current Coverage in AMAU
 2 - Transfer Variants ,2.3,When a transfer containing multi-level descriptive metadata (*SampleTransfer/CSVmultiLevel*) is processed,- [ ] The AIP METS contains descriptive metadata for each of the directories described in the metadata.csv,,Medium,None,
 2 - Transfer Variants ,2.4,When a transfer containing descriptive metadata for individual files using a metadata.csv (*SampleTransfer/CSVmetadata*) is processed,- [ ] The AIP METS contains descriptive metadata for each of the files described in the metadata.csv,,High,Ok / Implicit,
 2 - Transfer Variants ,2.5,"When a transfer with files that have been manually normalized outside of Archivematica (*TestTransfers/ManualNormalization*) is processed, and ""Normalize for preservation and access"" is selected at the Normalization microservice","- [ ] Originals should be .dat, .TGA, and .GIF AND
-- [ ] Preservation copies should be .prk, .tif, and .tif AND
+- [ ] Preservation copies should be .prk and .tif (there is no preservation copy made of the GIF) AND
 - [ ] Access copies should be .bmp, .jpg, and .jpg.",,High,None,
 2 - Transfer Variants ,2.6,"With “Normalization” set to None and “Approve normalization” set to None in the default processing config, process a transfer using *SampleTransfers/AccessCopies*, “Job: Normalize” should only give three options - choose “Normalize for preservation”. ","- [ ] Originals should be .png AND
-- [ ] Preservation copies should be as per rule AND 
+- [ ] No preservation copies should be generated (PNG is already considered a preservation format) AND 
 - [ ] Access copies should be .gif",,High,None,
 2 - Transfer Variants ,2.7,"With “Normalization” set to None and “Approve normalization” set to None in the default processing config, run SampleTransfers/ServiceCopies transfer and choose “Normalize service files for access”.","- [ ] ""Job Normalize service files for access"" should run AND 
 - [ ] the task output should show that the service files were used to create access copies.",,Medium,None,
-2 - Transfer Variants ,2.8,"Given that a processing configuration XML file is included in the transfer
-
-When the transfer is processed as a Standard transfer","- [ ] then the Transfer and Ingest processing will follow the decisions set out in the processing configuration XML file, rather than the default configuration",,Medium,None,
-2 - Transfer Variants ,2.9,"Given that a processing configuration XML file is included in the transfer
-
-When the transfer is processed as a Zipped Bag transfer","- [ ] then the Transfer and Ingest processing will follow the decisions set out in the processing configuration XML file, rather than the default configuration",,Medium,None,
-2 - Transfer Variants ,2.10,When structural metadata is included in a Transfer using a mets_structmap.xml file,- [ ] the provided structural map will be included in the AIP METs file. ,,Low,None,
+2 - Transfer Variants ,2.8,When *SampleTransfers/ProcessingMCP* is processed using the Standard transfer type,"- [ ] then the Transfer and Ingest processing will follow the decisions set out in the processing configuration XML file, rather than the default configuration",,Medium,None,
+2 - Transfer Variants ,2.9,When *SampleTransfers/BagExamples/SimpleBagWithProcessingMCP* is processed as a Zipped Bag transfer,"- [ ] then the Transfer and Ingest processing will follow the decisions set out in the processing configuration XML file, rather than the default configuration",,Medium,None,
+2 - Transfer Variants ,2.1,When one of the directories in *SampleTransfers/StructMapTransferSamples* is processed using the Standard transfer type,- [ ] the provided structural map will be included in the AIP METs file. ,,Low,None,
 2 - Transfer Variants ,2.11,"Given that a transfer contains a premis.xml file (*SampleTransfers/PremisImporter*)
 
-When the premis.xml file is imported into Archivematica after the Objects are ingested","- [ ] Then the PREMIS XML import file Object, Event, and Agent entities are added to the Archivematica AIP METS file AND
-- [ ] the pre-ingest Objects are mapped to new Archivematica Objects using the PREMIS OriginalName property AND
-- [ ] the pre-ingest Event entities retain their original field values AND
-- [ ] the pre-ingest Event entities are not linked to any new Agent entities generated by Archivematica",,,,
+When the premis.xml file is parsed into the Archivematica METS file","- [ ] Then the PREMIS XML import file's Event and Agent entities are added to the Archivematica AIP METS file AND
+- [ ] the Events retain their original field values, including the event details AND
+- [ ] the Events are linked to the same Agents as in the PREMIS XML import file",,,,
 2 - Transfer Variants ,2.12,"Given that a transfer contains an identifiers.json file (*SampleTransfers/DemoTransferCSV*)
 
 When the identifiers.json file is imported into Archivematica after the Objects are ingested",- [ ] Then the identifiers from the JSON file are mapped as objectIdentifiers in the METS file,,,,
@@ -75,7 +70,9 @@ When a transfer is processed","- [ ] Then Siegfried is able to identify file for
 - [ ] the premis:eventDetail will indicate that Siegfried was the tool used",Siegfried,High,Excellent,
 6 - File Identification,6.2,"Given that Siegfried is set as the file identification tool
 
-When a transfer that includes the known format <xxyy> is processed with ""Perform file format identification (Transfer)"" set to Yes",- [ ] Then Siegfried identifies the format as <xxyy>,Siegfried,High,None,
+AND the Processing Configuration in the Administration settings has ""Perform file format identification (Transfer)"" set to Yes
+
+When a transfer that includes known formats is processed (e.g. *SampleTransfers/Images*)",- [ ] Then Siegfried successfully identifies the formats during the *Identify File Format* microservice,Siegfried,High,None,
 6 - File Identification,6.3,"Given that Siegfried is set as the file identification tool
 
 When a transfer includes a format that is unknown to Siegfried (try sampleTransfers/Multimedia) and is processed with ""Perform file format identification (Transfer)"" set to Yes","- [ ] Then Job: Identify file format shows as failed in the dashboard AND
@@ -89,7 +86,9 @@ When a transfer is processed with ""Perform file format identification (Transfer
 - [ ] the premis:eventDetail will indicate that Fido was the tool used",Fido,High,None,
 6 - File Identification,6.5,"Given that Fido is set as the file identification tool
 
-When a transfer that includes the known format <xxyy> is processed with ""Perform file format identification (Transfer)"" set to Yes",- [ ] Then Fido identifies the format as <xxyy>,Fido,High,None,
+AND the Processing Configuration in the Administration settings has ""Perform file format identification (Transfer)"" set to Yes
+
+When a transfer that includes known formats is processed (e.g. *SampleTransfers/Images*)",- [ ] Then Fido successfully identifies the formats during the *Identify File Format* microservice,Fido,High,None,
 6 - File Identification,6.6,"Given that Fido is set as the file identification tool
 
 When a transfer includes a format that is unknown to Fido is processed with ""Perform file format identification (Transfer)"" set to Yes","- [ ] Then Job: Identify file format shows as failed in the dashboard AND
@@ -172,7 +171,7 @@ When the user selects ""normalize for access"" at the Normalize job","- [ ] Then
 - [ ] the AIP will contain originals only",,High,,
 11 - Normalization,11.8,"Given that a transfer includes an access directory with manually normalized access derivatives (*SampleTransfers/AccessCopies*)
 
-When the user reaches the Normalize job","- [ ] Then the dropdown will only have two options (""Normalize for preservation"" and ""Do not normalize"") AND
+When the user reaches the Normalize job","- [ ] Then the dropdown will only have two normalization options (""Normalize for preservation"" and ""Do not normalize"") AND
 - [ ] regardless of the option picked, a DIP will be created with the access copies from the transfer",,Medium,,
 11 - Normalization,11.9,"Given that a transfer includes a preservation directory with manually normalized preservation derivatives (*SampleTransfers/PreservationCopies*)
 
@@ -181,7 +180,7 @@ When the user reaches the Normalize job and chooses ""Normalize for Preservation
 - [ ] UUIDs will be assigned to the preservation copies and included in their filenames AND
 - [ ] the AIP will contain the originals and the preservation copies as if Archivematica had normalized for preservation AND
 - [ ] the AIP will include normalization events",,Medium,,
-11 - Normalization,11.10,"When a transfer is processed with ""Generate thumbnails"" set to Yes",- [ ] Then thumbnails will be created for all digital objects in the AIP,convert (ImageMagick),Medium,,
+11 - Normalization,11.1,"When a transfer is processed with ""Generate thumbnails"" set to Yes",- [ ] Then thumbnails will be created for all digital objects in the AIP,convert (ImageMagick),Medium,,
 11 - Normalization,11.11,"When a transfer is processed with ""Generate thumbnails"" set to Yes, without default","- [ ] Then thumbnails will be created for all digital objects in the AIP where meaningful thumbnails can be created AND
 - [ ] Thumbnails will not be created if the thumbnail would be a default icon",,Medium,,
 11 - Normalization,11.12,"When a transfer is processed with ""Generate thumbnails"" set to No",- [ ] Then no thumbnails will be created,,Medium,,
@@ -215,12 +214,12 @@ When the transfer is processed",- [ ] Then the accession number will end up in M
 14 - Backlog,14.1,"Given that a user has sent a transfer to backlog at “Job: Create SIP(s)?""
 
 When the user downloads the transfer from the backlog
-","- [ ] Then the package that is downloaded from the backlog will be a valid bag
-- [ ] And the transfer METS will contain certain information",,High,None,
+","- [ ] Then the package that is downloaded from the backlog will be a valid bag AND
+- [ ] it will contain a transfer METS file",,High,None,
 14 - Backlog,14.2,"Given that a transfer is in the backlog
 
 When the user searches the backlog using the search interface on the Backlog tab","- [ ] Then searches should be successful across all search parameters (file name, file extension, accession number, ingest date, SIP UUID)
-(Note: some search parameters require keyword vs phrase or vice versa)",,High,None,
+(Note: some search parameters require keyword vs phrase or vice versa; searching is case sensitive)",,High,None,
 14 - Backlog,14.3,"Given that a transfer is in the backlog
 
 When the user creates a delete request and the delete request is approved in the Storage Service",- [ ] Then the transfer should be removed from the backlog,,Medium,None,
@@ -228,7 +227,7 @@ When the user creates a delete request and the delete request is approved in the
 
 When the user searches using the search interface on the Appraisal tab","- [ ] Then searches should be successful across all search parameters (file name, file extension, accession number, ingest date, SIP UUID) AND
 - [ ] the search results should be displayed in the backlog pane
-(Note: some search parameters require keyword vs phrase or vice versa)",,High,None,
+(Note: some search parameters require keyword vs phrase or vice versa; searching is case sensitive)",,High,None,
 15 - Appraisal,15.2,"Given that the user has searched for some material to populate the backlog pane
 
 When the user selects Collapse all/Expand all",- [ ] Then all directories should collapse or expand,,Medium,None,
@@ -262,7 +261,7 @@ When the user opens the Visualizations on the Analysis pane > Objects","- [ ] Th
 And the transfer was processed with ""Examine contents"" set to Yes
 
 When the user selects PII or Credit card numbers on the Analysis pane > Examine contents",- [ ] Then a list of files that contain credit card numbers or social security numbers will be displayed,,Low,None,
-15 - Appraisal,15.10,"Given that the user has selected a browser-renderable file (image, audio, video) on the File list pane
+15 - Appraisal,15.1,"Given that the user has selected a browser-renderable file (image, audio, video) on the File list pane
 
 When the user selects Preview File on the Analysis pane","- [ ] Then the file should be displayed appropriately in the preview window AND
 - [ ] the user should be able to expand file preview pane for an image if using Firefox AND
@@ -300,7 +299,7 @@ When the user clicks ""Reload""",- [ ] Then the Arrangement pane should be reloa
 15 - Appraisal,15.19,"Given that the ArchivesSpace integration is configured
 
 When a user clicks on ""Search ArchivesSpace"" in the ArchivesSpace pane",- [ ] Then ArchivesSpace resources should be displayed,,Low,None,
-15 - Appraisal,15.20,"Given that a user has selected an ArchivesSpace resource
+15 - Appraisal,15.2,"Given that a user has selected an ArchivesSpace resource
 
 When the user selects ""Add new child record""","- [ ] Then a metadata form will pop up where the user can add metadata AND
 - [ ] the child record will appear in the Appraisal tab AND
@@ -373,7 +372,7 @@ When the user selects ""Upload DIP to ArchivesSpace"" from the Upload DIP micros
 
 When the user confirms that matching is complete
 ",- [ ] Then the DIP information will be attached to the ArchivesSpace resource as an Instance,,Low,None,
-16 - Access integrations,16.10,"Given that the transfer includes an ArchivesSpace matching CSV with valid data
+16 - Access integrations,16.1,"Given that the transfer includes an ArchivesSpace matching CSV with valid data
 
 When the user selects ""Upload DIP to ArchivesSpace"" from the Upload DIP microservice drop-down
 ","- [ ] Then the user will be taken to the ArchivesSpace matching GUI AND
@@ -418,9 +417,11 @@ When the user clicks on ""View"" to view the METS file",- [ ] Then the METS file
 17 - Archival Storage,17.9,"Given that an AIP has been stored and the user has navigated to the AIP storage page
 
 When the user clicks on ""View"" to view the pointer file",- [ ] Then the pointer file should be downloaded,,Medium,,
-17 - Archival Storage,17.10,"Given that an AIP with Dublin Core descriptive metadata has been stored and the user has navigated to the AIP storage page
+17 - Archival Storage,17.10,"Given that an AIP has been stored
 
-When the user wants to upload just the descriptive metadata to an AtoM description by entering the AtoM slug in the Upload DIP pane","- [ ] Then archival descriptions should be created in AtoM that contain the descriptive metadata, but no digital objects",,Medium,,
+When the user wants to upload the digital object metadata for the AIP objects to an AtoM description","- [ ] Then the user can navigate to the AIP information page AND
+- [ ] the user can use the Upload DIP action at the bottom of the page by entering the slug for the AtoM description into the *Insert slug* textbox and clicking *Upload* AND
+- [ ] archival descriptions will be created in AtoM that contain the digital object metadata, but no digital objects",,Medium,,
 17 - Archival Storage,17.11,"Given that an AIP has been stored
 
 When the user selects ""Metadata re-ingest"" from the AIP information page","- [ ] Then the AIP will be sent to the Ingest tab where re-ingest can be approved AND
@@ -515,7 +516,7 @@ When the user selects ""Calculate disk usage”",- [ ] Then the disk usage will 
 When the user selects ""Clear"" for one of the storage locations","- [ ] Then the user will be prompted to confirm the choice AND
 - [ ] the folder will be cleared AND
 - [ ] the usage will reset to 4.0KB",,Medium,None,
-20 - Administration,20.10,"Given that the credentials have been added to the DIP Upload page for an AtoM, Binder, or ArchivesSpace instance
+20 - Administration,20.1,"Given that the credentials have been added to the DIP Upload page for an AtoM, Binder, or ArchivesSpace instance
 
 When the user uploads a DIP to those systems",- [ ] Then DIP upload will be successful,,High,,
 20 - Administration,20.11,"Given that the PREMIS agent identifier value, name, and type have been set
@@ -528,8 +529,7 @@ When the user views the dashboard",- [ ] Then the microservice tasks and interfa
 - [ ] the Agent code should correspond with the version",,Medium,None,
 21 - Users & Permissions,21.1,"Given that a user is an administrator
 
-When the user goes to Administration > Users","- [ ] Then the user will be able to add a new user, edit an existing user, or delete a user AND
-- [ ] the new username can contain non-ASCII characters
+When the user goes to Administration > Users","- [ ] Then the user will be able to add a new user, edit an existing user, or delete a user
 ",,High,None,
 21 - Users & Permissions,21.2,"Given that a user is not an administrator
 
