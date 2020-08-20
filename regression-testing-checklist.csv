@@ -411,50 +411,46 @@ When the user selects to reject the transfer/SIP","- [ ] Then the reject microse
 When the user clicks the “Select columns” link at the bottom of the Archival Storage tab
 ","- [ ] Then they can deselect one or more of the currently displayed default columns and can select one or more new column options (“AIC”, “File count”, “Accession numbers”, “Created”, “Status”) in their place.
 - [ ] The columns displayed in the table list on the Archival Storage tab match the selected and deselected options from the “Select columns” dropdown.
-- [ ] These selections also apply to the “Show files” display option (except “AIC”, “File Count” “Created”, and “Encrypted”).
 - [ ] These selections are applied to all users of the same pipeline.
 - [ ] The select and deselect choices persist between user sessions.",,Low,None,
-17 - Archival Storage,17.4,"Given that an AIP has been stored
+17 - Archival Storage,17.4,"Given that there are AIPs in storage
 
-When the user searches using the search interface on the Archival Storage tab",- [ ] The columns displayed in the table list on the Backlog tab match the selected and deselected options from the “Select columns” dropdown.,,High,None,
-17 - Archival Storage,17.5,"Given that there are AIPs in storage
-
-When the user does a search with ""Show files?"" selected",- [ ] These selections also apply to the “Show files” display option (except “File Count”).,,High,,
-17 - Archival Storage,17.6,"Given that an AIP has been stored
+When the user does a search with ""Show files?"" selected","- [ ] These ""Select columns"" options also apply to the “Show files” display option (except “AIC”, “File Count” “Created”, and “Encrypted”).",,High,,
+17 - Archival Storage,17.5,"Given that an AIP has been stored
 
 When the user clicks on the name or UUID of the AIP",- [ ] These selections are applied to all users of the same pipeline.,,High,Excellent,
-17 - Archival Storage,17.7,"Given that the user has done a search in the Archival Storage tab
+17 - Archival Storage,17.6,"Given that the user has done a search in the Archival Storage tab
 
 When the user clicks on ""Create an AIC""",- [ ] The select and deselect choices persist between user sessions.,,Medium,,
-17 - Archival Storage,17.8,"Given that an AIP has been stored and the user has navigated to the AIP storage page
+17 - Archival Storage,17.7,"Given that an AIP has been stored and the user has navigated to the AIP storage page
 
 When the user clicks on ""Download""",- [ ] Then the AIP should be downloaded,,High,,
-17 - Archival Storage,17.9,"Given that an AIP has been stored and the user has navigated to the AIP storage page
+17 - Archival Storage,17.8,"Given that an AIP has been stored and the user has navigated to the AIP storage page
 
 When the user clicks on ""View"" to view the METS file",- [ ] Then the METS file should be downloaded,,Medium,,
-17 - Archival Storage,17.1,"Given that an AIP has been stored and the user has navigated to the AIP storage page
+17 - Archival Storage,17.9,"Given that an AIP has been stored and the user has navigated to the AIP storage page
 
 When the user clicks on ""View"" to view the pointer file",- [ ] Then the pointer file should be downloaded,,Medium,,
-17 - Archival Storage,17.11,"Given that an AIP has been stored
+17 - Archival Storage,17.1,"Given that an AIP has been stored
 
 When the user wants to upload the digital object metadata for the AIP objects to an AtoM description","- [ ] Then the user can navigate to the AIP information page AND
 - [ ] the user can use the Upload DIP action at the bottom of the page by entering the slug for the AtoM description into the *Insert slug* textbox and clicking *Upload* AND
 - [ ] archival descriptions will be created in AtoM that contain the digital object metadata, but no digital objects",,Medium,,
-17 - Archival Storage,17.12,"Given that an AIP has been stored
+17 - Archival Storage,17.11,"Given that an AIP has been stored
 
 When the user selects ""Metadata re-ingest"" from the AIP information page","- [ ] Then the AIP will be sent to the Ingest tab where re-ingest can be approved AND
 - [ ] the microservices and jobs will follow the selected processing configuration AND
 - [ ] metadata can be added using the metadata icon in the GUI AND
 - [ ] the new AIP over-writes the old one in storage
 - [ ] <premis:eventType>reingestion</premis:eventType> is present in the resulting METS",,High,Ok / Implicit (test does not include adding metadata),reingest-aip.feature
-17 - Archival Storage,17.13,"Given that an AIP has been stored
+17 - Archival Storage,17.12,"Given that an AIP has been stored
 
 When the user selects ""Partial re-ingest"" from the AIP information page","- [ ] Then the AIP will be sent to the Ingest tab where re-ingest can be approved AND
 - [ ] the microservices and jobs will follow the selected processing configuration AND
 - [ ] the user can select a different normalization option than the first time (i.e. can create a DIP on demand)
 - [ ] the new AIP over-writes the old one in storage
 - [ ] <premis:eventType>reingestion</premis:eventType> is present in the resulting METS",,High,Ok / Implicit (test does not specify DIP creation),reingest-aip.feature
-17 - Archival Storage,17.14,"Given that an AIP has been stored
+17 - Archival Storage,17.13,"Given that an AIP has been stored
 
 When the user selects ""Full re-ingest"" from the AIP information page","- [ ] Then the AIP will be sent to the Transfer tab where re-ingest can be approved AND
 - [ ] the microservices and jobs will follow the selected processing configuration AND
@@ -462,16 +458,16 @@ When the user selects ""Full re-ingest"" from the AIP information page","- [ ] T
 - [ ] the new AIP over-writes the old one in storage AND
 - [ ] <premis:eventType>reingestion</premis:eventType> is present in the resulting METS AND
 - [ ] any new PREMIS events are present in the resulting METS",,High,Excellent,reingest-aip.feature
-17 - Archival Storage,17.15,"Given that an AIP has been stored
+17 - Archival Storage,17.14,"Given that an AIP has been stored
 
 When the user requests deletion of the AIP from the AIP information page","- [ ] Then the status of the AIP will be ""Deletion requested""
 (See 24.2 for other half of the deletion test)",,High,,
-17 - Archival Storage,17.16,"Given that an encrypted storage location exists
+17 - Archival Storage,17.15,"Given that an encrypted storage location exists
 
 When an AIP is stored in the encrypted storage location","- [ ] Then the AIP pointer file will include an encryption event and public key AND
 - [ ] the AIP can be downloaded AND
 - [ ] the AIP can be reingested and downloaded again",,,,
-17 - Archival Storage,17.17,"Given that a storage location has a replicator location connected to it
+17 - Archival Storage,17.16,"Given that a storage location has a replicator location connected to it
 
 When an AIP is stored in the storage location","- [ ] Then the AIP will be saved in the storage location AND
 - [ ] a second copy of the AIP will be saved in the replicator location",,,,
