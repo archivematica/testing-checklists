@@ -211,16 +211,23 @@ When they click on the metadata icon for a transfer/SIP proir to the metadata re
 13 - Add Metadata,13.3,"Given that the accession number field is filled out for a new transfer
 
 When the transfer is processed",- [ ] Then the accession number will end up in METS as a registration event outcome detail note.,,High,None,
-14 - Backlog,14.1,"Given that a user has sent a transfer to backlog at “Job: Create SIP(s)?""
+14 – Backlog,14.1,"Given that a user has sent a transfer to backlog at “Job: Create SIP(s)?""
+
+When they click the “Select columns” link at the bottom of the Backlog tab","- [ ] Then they can deselect one or more of the currently displayed default columns and can select one or more new column options (File count, Accession number, Status) in their place.
+- [ ] The columns displayed in the table list on the Backlog tab match the selected and deselected options from the “Select columns” dropdown.
+- [ ] These selections also apply to the “Show files” display option (except “File Count”).
+- [ ] These selections are applied to all users of the same pipeline.
+- [ ] The select and deselect choices persist between user sessions.",,Low,None,
+14 - Backlog,14.2,"Given that a user has sent a transfer to backlog at “Job: Create SIP(s)?""
 
 When the user downloads the transfer from the backlog
 ","- [ ] Then the package that is downloaded from the backlog will be a valid bag AND
 - [ ] it will contain a transfer METS file",,High,None,
-14 - Backlog,14.2,"Given that a transfer is in the backlog
+14 - Backlog,14.3,"Given that a transfer is in the backlog
 
 When the user searches the backlog using the search interface on the Backlog tab","- [ ] Then searches should be successful across all search parameters (file name, file extension, accession number, ingest date, SIP UUID)
 (Note: some search parameters require keyword vs phrase or vice versa; searching is case sensitive)",,High,None,
-14 - Backlog,14.3,"Given that a transfer is in the backlog
+14 - Backlog,14.4,"Given that a transfer is in the backlog
 
 When the user creates a delete request and the delete request is approved in the Storage Service",- [ ] Then the transfer should be removed from the backlog,,Medium,None,
 15 - Appraisal,15.1,"Given that a transfer is in the backlog
@@ -417,7 +424,7 @@ When the user clicks on ""View"" to view the METS file",- [ ] Then the METS file
 17 - Archival Storage,17.9,"Given that an AIP has been stored and the user has navigated to the AIP storage page
 
 When the user clicks on ""View"" to view the pointer file",- [ ] Then the pointer file should be downloaded,,Medium,,
-17 - Archival Storage,17.10,"Given that an AIP has been stored
+17 - Archival Storage,17.1,"Given that an AIP has been stored
 
 When the user wants to upload the digital object metadata for the AIP objects to an AtoM description","- [ ] Then the user can navigate to the AIP information page AND
 - [ ] the user can use the Upload DIP action at the bottom of the page by entering the slug for the AtoM description into the *Insert slug* textbox and clicking *Upload* AND
