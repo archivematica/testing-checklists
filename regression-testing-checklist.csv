@@ -535,6 +535,10 @@ When the user goes to Administration > Users","- [ ] Then the user will be able 
 
 When the user goes to the Administration tab",- [ ] Then the user will not see the Users menu item,,High,,
 21 - Users & Permissions,21.3,When LDAP is configured ,,,Medium,None,
+21 - Users & Permissions,21.4,When CAS is configured,"- [ ] Then attempting to access Archivematica in the browser when not yet authenticated redirects the user to a CAS server for authentication AND
+- [ ] After successfully authenticating on the CAS server, the user is logged into Archivematica AND
+- [ ] A new user account is created for the user if one did not already exist AND
+- [ ] Logging out from Archivematica ends the Archivematica session and logs the user out on the CAS server",,Medium,None,
 22 - Failure Reports & Notifications,22.1,"Given that a transfer has failed
 
 When the user views Administration > Failures","- [ ] Then the user will see a failure report AND
