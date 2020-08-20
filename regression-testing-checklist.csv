@@ -1,20 +1,28 @@
 Functional Area,ID,Feature,Then,External tools,Severity,Current Coverage in AMAUAT,AMAUAT test
-1 - Transfer Types,1.1,When *SampleTransfers/Images* is processed using the Standard transfer type,"- [ ] All microservices execute successfully
+1 - Transfer Types,1.1,"Given the user is processing a Transfer but they want to use decision point settings that are different from the “Default” processing configuration.
+
+When they have defined additional processing configuration profiles in in the Archivematica Administration tab (e.g. “mycustom_processing_config”)
+","- [ ] Then the user can select this processing configuration as a dropdown option next to the ""Start Transfer"" button.
+- [ ] The user will receive a pop-up notification indicating that the Transfer has started with the selected processing configuration (e.g. “mycustom_processing_config”).
+- [ ] The Transfer and Ingest processing will follow the decisions set out in the newly selected processing configuration file rather than the “default” processing configuration.
+- [ ] The next time the user presses the “Start Transfer” button, but does not select a processing configuration option, they will receive a pop-up notification that the Transfer has started with the “default” processing configuration and the Transfer and Ingest processing will follow the “default” processing configuration settings.
+",,Medium,None,
+1 - Transfer Types,1.2,When *SampleTransfers/Images* is processed using the Standard transfer type,"- [ ] All microservices execute successfully
 - [ ] All standard AIP structure and METS structure criteria apply",,High,Excellent,create-aip.feature
-1 - Transfer Types,1.2,When *SampleTransfer/ZippedDirectoryTransfers/DemoTransferCSV.zip* is processed using the Zipped Directory transfer type,"- [ ] The Extract zipped bag transfer job executes successfully
+1 - Transfer Types,1.3,When *SampleTransfer/ZippedDirectoryTransfers/DemoTransferCSV.zip* is processed using the Zipped Directory transfer type,"- [ ] The Extract zipped bag transfer job executes successfully
 - [ ] All microservices execute successfully
 - [ ] All standard AIP structure and METS structure criteria apply",,,,
-1 - Transfer Types,1.3,When *SampleTransfers/UnzippedBag* is processed using the Unzipped Bag transfer type,"- [ ] The 'Verify bag, and restructure for compliance' job in the 'Approve Transfer' microservice executes successfully AND
+1 - Transfer Types,1.4,When *SampleTransfers/UnzippedBag* is processed using the Unzipped Bag transfer type,"- [ ] The 'Verify bag, and restructure for compliance' job in the 'Approve Transfer' microservice executes successfully AND
 - [ ] All standard AIP structure and METS structure criteria apply AND
 - [ ] The contents of bag-info.txt (if any) are parsed into METS",,High,Excellent,create-aip.feature
-1 - Transfer Types,1.4,When *SampleTransfer/ZippedBag.zip* is processed using the Zipped Bag transfer type,"- [ ] The Bag Verification microservice executes successfully AND
+1 - Transfer Types,1.5,When *SampleTransfer/ZippedBag.zip* is processed using the Zipped Bag transfer type,"- [ ] The Bag Verification microservice executes successfully AND
 - [ ] All standard AIP structure and METS structure criteria apply AND
 - [ ] The contents of bag-info.txt (if any) are parsed into METS",7zip,High,None,
-1 - Transfer Types,1.5,When *SampleTransfer/DSpaceExport* (or one of the zips contained inside) is processed using the DSpace transfer type,"- [ ] The Identify DSpace files microservice executes successfully AND
+1 - Transfer Types,1.6,When *SampleTransfer/DSpaceExport* (or one of the zips contained inside) is processed using the DSpace transfer type,"- [ ] The Identify DSpace files microservice executes successfully AND
 - [ ] All standard AIP structure and METS structure criteria apply",,High,None,
-1 - Transfer Types,1.6,When *SampleTransfer/ISODiskImage* is processed using the Disk Image transfer type AND disk image metadata has been added before the transfer is started,"- [ ] The disk image metadata ends up in the AIP METS AND
+1 - Transfer Types,1.7,When *SampleTransfer/ISODiskImage* is processed using the Disk Image transfer type AND disk image metadata has been added before the transfer is started,"- [ ] The disk image metadata ends up in the AIP METS AND
 - [ ] All standard AIP structure and METS structure criteria apply","tsk_recover (Sleuthkit), unrar-free",Medium,None,
-1 - Transfer Types,1.7,"When the three Dataverse sample transfers (*SampleTransfers/Dataverse/AStudyOfMyAfternoonDrinks*, *SampleTransfers/Dataverse/NDSAStaffingReport*, *SampleTransfers/Dataverse/XRayScansOfPolyodonSpathula*) are processed using the Dataverse transfer type AND Archivematica is not set to delete packages after extraction","- [ ] Microservice: parse external files succeeds AND
+1 - Transfer Types,1.8,"When the three Dataverse sample transfers (*SampleTransfers/Dataverse/AStudyOfMyAfternoonDrinks*, *SampleTransfers/Dataverse/NDSAStaffingReport*, *SampleTransfers/Dataverse/XRayScansOfPolyodonSpathula*) are processed using the Dataverse transfer type AND Archivematica is not set to delete packages after extraction","- [ ] Microservice: parse external files succeeds AND
 - [ ] Dataverse metadata is parsed into the METS, e.g. DDI information for title and author AND
 - [ ] All standard AIP structure and METS structure criteria apply",,Low ,Excellent,create-aip.feature
 2 - Transfer Variants ,2.1,When a transfer containing descriptive and rights metadata (*SampleTransfer/DemoTransferCSV*) is processed,"- [ ] The AIP METS contains descriptive metadata for each of the objects described in the metadata.csv AND
