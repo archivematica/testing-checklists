@@ -409,13 +409,18 @@ When the user selects to reject the transfer/SIP","- [ ] Then the reject microse
 17 - Archival Storage,17.3,"Given that there are AIPS in storage 
 
 When the user clicks the “Select columns” link at the bottom of the Archival Storage tab
-","- [ ] Then they can deselect one or more of the currently displayed default columns and can select one or more new column options (“AIC”, “File count”, “Accession numbers”, “Created”, “Status”) in their place.
+","- [ ] Then they can deselect one or more of the currently displayed default columns and can select one or more new column options (“AIC”, “File count”, “Accession numbers”, “Location”, “Created”, “Status”) in their place.
 - [ ] The columns displayed in the table list on the Archival Storage tab match the selected and deselected options from the “Select columns” dropdown.
 - [ ] These selections are applied to all users of the same pipeline.
 - [ ] The select and deselect choices persist between user sessions.",,Low,None,
 17 - Archival Storage,17.4,"Given that there are AIPs in storage
 
 When the user does a search with ""Show files?"" selected","- [ ] These ""Select columns"" options also apply to the “Show files” display option (except “AIC”, “File Count” “Created”, and “Encrypted”).",,High,,
+17 - Archival Storage,17.5,"Given that there are AIPs in storage
+
+When the user clicks the “Download CSV” link at the top right of the Archival Storage tab","- [ ]  Then the user will be presented with a “Save as” dialog box so that they can choose the location to store the CSV file on their computer, as well as change the default file name.
+- [ ] The CSV file will contain information about all the AIP packages in Archival Storage, not just those currently displayed on the user's Archival Storage tab page.
+- [ ] The CSV file will include columns for all the available information about AIPs, not just those currently selected for display on the user's Archival Storage tab page.",,Low,None,
 17 - Archival Storage,17.5,"Given that an AIP has been stored
 
 When the user clicks on the name or UUID of the AIP",- [ ] These selections are applied to all users of the same pipeline.,,High,Excellent,
