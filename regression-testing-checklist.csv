@@ -40,7 +40,7 @@ When they have defined additional processing configuration profiles in in the Ar
 - [ ] the task output should show that the service files were used to create access copies.",,Medium,None,
 2 - Transfer Variants ,2.8,When *SampleTransfers/ProcessingMCP* is processed using the Standard transfer type,"- [ ] then the Transfer and Ingest processing will follow the decisions set out in the processing configuration XML file, rather than the default configuration",,Medium,None,
 2 - Transfer Variants ,2.9,When *SampleTransfers/BagExamples/SimpleBagWithProcessingMCP* is processed as a Zipped Bag transfer,"- [ ] then the Transfer and Ingest processing will follow the decisions set out in the processing configuration XML file, rather than the default configuration",,Medium,None,
-2 - Transfer Variants ,2.1,When one of the directories in *SampleTransfers/StructMapTransferSamples* is processed using the Standard transfer type,- [ ] the provided structural map will be included in the AIP METs file. ,,Low,None,
+2 - Transfer Variants ,2.10,When one of the directories in *SampleTransfers/StructMapTransferSamples* is processed using the Standard transfer type,- [ ] the provided structural map will be included in the AIP METs file. ,,Low,None,
 2 - Transfer Variants ,2.11,"Given that a transfer contains a premis.xml file (*SampleTransfers/PremisImporter*)
 
 When the premis.xml file is parsed into the Archivematica METS file","- [ ] Then the PREMIS XML import file's Event and Agent entities are added to the Archivematica AIP METS file AND
@@ -188,7 +188,7 @@ When the user reaches the Normalize job and chooses ""Normalize for Preservation
 - [ ] UUIDs will be assigned to the preservation copies and included in their filenames AND
 - [ ] the AIP will contain the originals and the preservation copies as if Archivematica had normalized for preservation AND
 - [ ] the AIP will include normalization events",,Medium,,
-11 - Normalization,11.1,"When a transfer is processed with ""Generate thumbnails"" set to Yes",- [ ] Then thumbnails will be created for all digital objects in the AIP,convert (ImageMagick),Medium,,
+11 - Normalization,11.10,"When a transfer is processed with ""Generate thumbnails"" set to Yes",- [ ] Then thumbnails will be created for all digital objects in the AIP,convert (ImageMagick),Medium,,
 11 - Normalization,11.11,"When a transfer is processed with ""Generate thumbnails"" set to Yes, without default","- [ ] Then thumbnails will be created for all digital objects in the AIP where meaningful thumbnails can be created AND
 - [ ] Thumbnails will not be created if the thumbnail would be a default icon",,Medium,,
 11 - Normalization,11.12,"When a transfer is processed with ""Generate thumbnails"" set to No",- [ ] Then no thumbnails will be created,,Medium,,
@@ -276,7 +276,7 @@ When the user opens the Visualizations on the Analysis pane > Objects","- [ ] Th
 And the transfer was processed with ""Examine contents"" set to Yes
 
 When the user selects PII or Credit card numbers on the Analysis pane > Examine contents",- [ ] Then a list of files that contain credit card numbers or social security numbers will be displayed,,Low,None,
-15 - Appraisal,15.1,"Given that the user has selected a browser-renderable file (image, audio, video) on the File list pane
+15 - Appraisal,15.10,"Given that the user has selected a browser-renderable file (image, audio, video) on the File list pane
 
 When the user selects Preview File on the Analysis pane","- [ ] Then the file should be displayed appropriately in the preview window AND
 - [ ] the user should be able to expand file preview pane for an image if using Firefox AND
@@ -314,7 +314,7 @@ When the user clicks ""Reload""",- [ ] Then the Arrangement pane should be reloa
 15 - Appraisal,15.19,"Given that the ArchivesSpace integration is configured
 
 When a user clicks on ""Search ArchivesSpace"" in the ArchivesSpace pane",- [ ] Then ArchivesSpace resources should be displayed,,Low,None,
-15 - Appraisal,15.2,"Given that a user has selected an ArchivesSpace resource
+15 - Appraisal,15.20,"Given that a user has selected an ArchivesSpace resource
 
 When the user selects ""Add new child record""","- [ ] Then a metadata form will pop up where the user can add metadata AND
 - [ ] the child record will appear in the Appraisal tab AND
@@ -387,7 +387,7 @@ When the user selects ""Upload DIP to ArchivesSpace"" from the Upload DIP micros
 
 When the user confirms that matching is complete
 ",- [ ] Then the DIP information will be attached to the ArchivesSpace resource as an Instance,,Low,None,
-16 - Access integrations,16.1,"Given that the transfer includes an ArchivesSpace matching CSV with valid data
+16 - Access integrations,16.10,"Given that the transfer includes an ArchivesSpace matching CSV with valid data
 
 When the user selects ""Upload DIP to ArchivesSpace"" from the Upload DIP microservice drop-down
 ","- [ ] Then the user will be taken to the ArchivesSpace matching GUI AND
@@ -436,7 +436,7 @@ When the user clicks on ""View"" to view the METS file",- [ ] Then the METS file
 17 - Archival Storage,17.9,"Given that an AIP has been stored and the user has navigated to the AIP storage page
 
 When the user clicks on ""View"" to view the pointer file",- [ ] Then the pointer file should be downloaded,,Medium,,
-17 - Archival Storage,17.1,"Given that an AIP has been stored
+17 - Archival Storage,17.10,"Given that an AIP has been stored
 
 When the user wants to upload the digital object metadata for the AIP objects to an AtoM description","- [ ] Then the user can navigate to the AIP information page AND
 - [ ] the user can use the Upload DIP action at the bottom of the page by entering the slug for the AtoM description into the *Insert slug* textbox and clicking *Upload* AND
@@ -535,7 +535,7 @@ When the user selects ""Calculate disk usage”",- [ ] Then the disk usage will 
 When the user selects ""Clear"" for one of the storage locations","- [ ] Then the user will be prompted to confirm the choice AND
 - [ ] the folder will be cleared AND
 - [ ] the usage will reset to 4.0KB",,Medium,None,
-20 - Administration,20.1,"Given that the credentials have been added to the DIP Upload page for an AtoM, Binder, or ArchivesSpace instance
+20 - Administration,20.10,"Given that the credentials have been added to the DIP Upload page for an AtoM, Binder, or ArchivesSpace instance
 
 When the user uploads a DIP to those systems",- [ ] Then DIP upload will be successful,,High,,
 20 - Administration,20.11,"Given that the PREMIS agent identifier value, name, and type have been set
