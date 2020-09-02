@@ -1,7 +1,8 @@
 # Testing checklists
-In this repo there is an issue template for regression testing. By creating an
-issue using this template, testers have a checklist of specific tests to run.
-Issues should be created per environment.
+In this repo there is an issue template for regression testing. These issue
+templates are used in the [Archivematica Issues
+repository](https://github.com/archivematica/Issues) when we do regression
+testing for a release.
 
 The issue template is generated from the **regression-testing-checklist.csv**
 file in this repository. To create a new issue template:
