@@ -18,3 +18,6 @@ file in this repository. To create a new issue template:
    into the template and export (leave Row separator and Suffix fields blank)
 5. Tidy up markdown file
    * Remove duplicate headings by finding `## null` and replacing with nothing
+
+In the [Archivematica Issues repository](https://github.com/archivematica/Issues),
+replace the testing-checklist issue template with your new markdown file.
