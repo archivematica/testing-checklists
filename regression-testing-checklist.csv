@@ -550,7 +550,7 @@ When a transfer fails",- [ ] Then the user will receive an emailed version of th
 23 - System Config Options,23.1,"Given that indexing has been disabled for a pipeline
 
 When the user opens the dashboard","- [ ] Then the Backlog, Appraisal, and Archival storage tabs are not visible
-- [ ] the Index AIP job will not run (? need to confirm)",,Medium,None,
+- [ ] the Index AIP job will not run (task output will read "Skipping indexing: AIPs indexing is currently disabled.")",,Medium,None,
 23 - System Config Options,23.2,"Given that task output capturing has been disabled for the pipeline
 
 When the user views the task ouptut page for a job that normally has some output in the standard out and standard error streams (i.e. characterize and extract metadata)","- [ ] Then there will be no data in the standard output stream AND
