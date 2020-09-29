@@ -199,7 +199,6 @@ When a transfer is processed with ""Transcribe files (OCR)"" set to Yes","- [ ] 
 12 - Performance & Resilience,12.5,When a user clicks on the Remove button for all transfers/SIPs on the Transfer or Ingest tab,"- [ ] Then a popup will allow the user to confirm that they want to remove all transfers/SIPs AND
 - [ ] all transfers/SIPs that have completed successfully or failed will no longer appear in the Transfer or Ingest tab AND
 - [ ] Transfers/SIPs that were rejected or are still in progress will remain in the Transfer or Ingest tab",,Medium,None,
-12 - Performance & Resilience,12.6,We could add a variety of failure scenarios here -- e.g. if SS is down? or elasticSearch etc? ,,,Medium,None,
 13 - Add Metadata,13.1,"Given that a user wants to record rights metadata for the transfer using the GUI form
 
 When they click on the metadata icon for a transfer/SIP proir to the metadata reminder microservice","- [ ] Then they can add, edit, and delete metadata using the GUI form AND
@@ -417,7 +416,7 @@ When the user clicks on ""View"" to view the METS file",- [ ] Then the METS file
 17 - Archival Storage,17.9,"Given that an AIP has been stored and the user has navigated to the AIP storage page
 
 When the user clicks on ""View"" to view the pointer file",- [ ] Then the pointer file should be downloaded,,Medium,,
-17 - Archival Storage,17.10,"Given that an AIP has been stored
+17 - Archival Storage,17.1,"Given that an AIP has been stored
 
 When the user wants to upload the digital object metadata for the AIP objects to an AtoM description","- [ ] Then the user can navigate to the AIP information page AND
 - [ ] the user can use the Upload DIP action at the bottom of the page by entering the slug for the AtoM description into the *Insert slug* textbox and clicking *Upload* AND
@@ -550,7 +549,7 @@ When a transfer fails",- [ ] Then the user will receive an emailed version of th
 23 - System Config Options,23.1,"Given that indexing has been disabled for a pipeline
 
 When the user opens the dashboard","- [ ] Then the Backlog, Appraisal, and Archival storage tabs are not visible
-- [ ] the Index AIP job will not run (task output will read "Skipping indexing: AIPs indexing is currently disabled.")",,Medium,None,
+- [ ] the Index AIP job will not run (task output will read `Skipping indexing: AIPs indexing is currently disabled.`)",,Medium,None,
 23 - System Config Options,23.2,"Given that task output capturing has been disabled for the pipeline
 
 When the user views the task ouptut page for a job that normally has some output in the standard out and standard error streams (i.e. characterize and extract metadata)","- [ ] Then there will be no data in the standard output stream AND
