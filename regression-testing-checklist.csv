@@ -1,20 +1,28 @@
 Functional Area,ID,Feature,Then,External tools,Severity,Current Coverage in AMAUAT,AMAUAT test
-1 - Transfer Types,1.1,When *SampleTransfers/Images* is processed using the Standard transfer type,"- [ ] All microservices execute successfully
+1 - Transfer Types,1.1,"Given the user is processing a Transfer but they want to use decision point settings that are different from the “Default” processing configuration.
+
+When they have defined additional processing configuration profiles in in the Archivematica Administration tab (e.g. “mycustom_processing_config”)
+","- [ ] Then the user can select this processing configuration as a dropdown option next to the ""Start Transfer"" button.
+- [ ] The user will receive a pop-up notification indicating that the Transfer has started with the selected processing configuration (e.g. “mycustom_processing_config”).
+- [ ] The Transfer and Ingest processing will follow the decisions set out in the newly selected processing configuration file rather than the “default” processing configuration.
+- [ ] The next time the user presses the “Start Transfer” button, but does not select a processing configuration option, they will receive a pop-up notification that the Transfer has started with the “default” processing configuration and the Transfer and Ingest processing will follow the “default” processing configuration settings.
+",,Medium,None,
+1 - Transfer Types,1.2,When *SampleTransfers/Images* is processed using the Standard transfer type,"- [ ] All microservices execute successfully
 - [ ] All standard AIP structure and METS structure criteria apply",,High,Excellent,create-aip.feature
-1 - Transfer Types,1.2,When *SampleTransfer/ZippedDirectoryTransfers/DemoTransferCSV.zip* is processed using the Zipped Directory transfer type,"- [ ] The Extract zipped bag transfer job executes successfully
+1 - Transfer Types,1.3,When *SampleTransfer/ZippedDirectoryTransfers/DemoTransferCSV.zip* is processed using the Zipped Directory transfer type,"- [ ] The Extract zipped bag transfer job executes successfully
 - [ ] All microservices execute successfully
 - [ ] All standard AIP structure and METS structure criteria apply",,,,
-1 - Transfer Types,1.3,When *SampleTransfers/UnzippedBag* is processed using the Unzipped Bag transfer type,"- [ ] The 'Verify bag, and restructure for compliance' job in the 'Approve Transfer' microservice executes successfully AND
+1 - Transfer Types,1.4,When *SampleTransfers/UnzippedBag* is processed using the Unzipped Bag transfer type,"- [ ] The 'Verify bag, and restructure for compliance' job in the 'Approve Transfer' microservice executes successfully AND
 - [ ] All standard AIP structure and METS structure criteria apply AND
 - [ ] The contents of bag-info.txt (if any) are parsed into METS",,High,Excellent,create-aip.feature
-1 - Transfer Types,1.4,When *SampleTransfer/ZippedBag.zip* is processed using the Zipped Bag transfer type,"- [ ] The Bag Verification microservice executes successfully AND
+1 - Transfer Types,1.5,When *SampleTransfer/ZippedBag.zip* is processed using the Zipped Bag transfer type,"- [ ] The Bag Verification microservice executes successfully AND
 - [ ] All standard AIP structure and METS structure criteria apply AND
 - [ ] The contents of bag-info.txt (if any) are parsed into METS",7zip,High,None,
-1 - Transfer Types,1.5,When *SampleTransfer/DSpaceExport* (or one of the zips contained inside) is processed using the DSpace transfer type,"- [ ] The Identify DSpace files microservice executes successfully AND
+1 - Transfer Types,1.6,When *SampleTransfer/DSpaceExport* (or one of the zips contained inside) is processed using the DSpace transfer type,"- [ ] The Identify DSpace files microservice executes successfully AND
 - [ ] All standard AIP structure and METS structure criteria apply",,High,None,
-1 - Transfer Types,1.6,When *SampleTransfer/ISODiskImage* is processed using the Disk Image transfer type AND disk image metadata has been added before the transfer is started,"- [ ] The disk image metadata ends up in the AIP METS AND
+1 - Transfer Types,1.7,When *SampleTransfer/ISODiskImage* is processed using the Disk Image transfer type AND disk image metadata has been added before the transfer is started,"- [ ] The disk image metadata ends up in the AIP METS AND
 - [ ] All standard AIP structure and METS structure criteria apply","tsk_recover (Sleuthkit), unrar-free",Medium,None,
-1 - Transfer Types,1.7,"When the three Dataverse sample transfers (*SampleTransfers/Dataverse/AStudyOfMyAfternoonDrinks*, *SampleTransfers/Dataverse/NDSAStaffingReport*, *SampleTransfers/Dataverse/XRayScansOfPolyodonSpathula*) are processed using the Dataverse transfer type AND Archivematica is not set to delete packages after extraction","- [ ] Microservice: parse external files succeeds AND
+1 - Transfer Types,1.8,"When the three Dataverse sample transfers (*SampleTransfers/Dataverse/AStudyOfMyAfternoonDrinks*, *SampleTransfers/Dataverse/NDSAStaffingReport*, *SampleTransfers/Dataverse/XRayScansOfPolyodonSpathula*) are processed using the Dataverse transfer type AND Archivematica is not set to delete packages after extraction","- [ ] Microservice: parse external files succeeds AND
 - [ ] Dataverse metadata is parsed into the METS, e.g. DDI information for title and author AND
 - [ ] All standard AIP structure and METS structure criteria apply",,Low ,Excellent,create-aip.feature
 2 - Transfer Variants ,2.1,When a transfer containing descriptive and rights metadata (*SampleTransfer/DemoTransferCSV*) is processed,"- [ ] The AIP METS contains descriptive metadata for each of the objects described in the metadata.csv AND
@@ -32,7 +40,7 @@ Functional Area,ID,Feature,Then,External tools,Severity,Current Coverage in AMAU
 - [ ] the task output should show that the service files were used to create access copies.",,Medium,None,
 2 - Transfer Variants ,2.8,When *SampleTransfers/ProcessingMCP* is processed using the Standard transfer type,"- [ ] then the Transfer and Ingest processing will follow the decisions set out in the processing configuration XML file, rather than the default configuration",,Medium,None,
 2 - Transfer Variants ,2.9,When *SampleTransfers/BagExamples/SimpleBagWithProcessingMCP* is processed as a Zipped Bag transfer,"- [ ] then the Transfer and Ingest processing will follow the decisions set out in the processing configuration XML file, rather than the default configuration",,Medium,None,
-2 - Transfer Variants ,2.1,When one of the directories in *SampleTransfers/StructMapTransferSamples* is processed using the Standard transfer type,- [ ] the provided structural map will be included in the AIP METs file. ,,Low,None,
+2 - Transfer Variants ,2.10,When one of the directories in *SampleTransfers/StructMapTransferSamples* is processed using the Standard transfer type,- [ ] the provided structural map will be included in the AIP METs file. ,,Low,None,
 2 - Transfer Variants ,2.11,"Given that a transfer contains a premis.xml file (*SampleTransfers/PremisImporter*)
 
 When the premis.xml file is parsed into the Archivematica METS file","- [ ] Then the PREMIS XML import file's Event and Agent entities are added to the Archivematica AIP METS file AND
@@ -180,7 +188,7 @@ When the user reaches the Normalize job and chooses ""Normalize for Preservation
 - [ ] UUIDs will be assigned to the preservation copies and included in their filenames AND
 - [ ] the AIP will contain the originals and the preservation copies as if Archivematica had normalized for preservation AND
 - [ ] the AIP will include normalization events",,Medium,,
-11 - Normalization,11.1,"When a transfer is processed with ""Generate thumbnails"" set to Yes",- [ ] Then thumbnails will be created for all digital objects in the AIP,convert (ImageMagick),Medium,,
+11 - Normalization,11.10,"When a transfer is processed with ""Generate thumbnails"" set to Yes",- [ ] Then thumbnails will be created for all digital objects in the AIP,convert (ImageMagick),Medium,,
 11 - Normalization,11.11,"When a transfer is processed with ""Generate thumbnails"" set to Yes, without default","- [ ] Then thumbnails will be created for all digital objects in the AIP where meaningful thumbnails can be created AND
 - [ ] Thumbnails will not be created if the thumbnail would be a default icon",,Medium,,
 11 - Normalization,11.12,"When a transfer is processed with ""Generate thumbnails"" set to No",- [ ] Then no thumbnails will be created,,Medium,,
@@ -210,16 +218,23 @@ When they click on the metadata icon for a transfer/SIP proir to the metadata re
 13 - Add Metadata,13.3,"Given that the accession number field is filled out for a new transfer
 
 When the transfer is processed",- [ ] Then the accession number will end up in METS as a registration event outcome detail note.,,High,None,
-14 - Backlog,14.1,"Given that a user has sent a transfer to backlog at “Job: Create SIP(s)?""
+14 – Backlog,14.1,"Given that a user has sent a transfer to backlog at “Job: Create SIP(s)?""
+
+When they click the “Select columns” link at the bottom of the Backlog tab","- [ ] Then they can deselect one or more of the currently displayed default columns and can select one or more new column options (File count, Accession number, Status) in their place.
+- [ ] The columns displayed in the table list on the Backlog tab match the selected and deselected options from the “Select columns” dropdown.
+- [ ] These selections also apply to the “Show files” display option (except “File Count”).
+- [ ] These selections are applied to all users of the same pipeline.
+- [ ] The select and deselect choices persist between user sessions.",,Low,None,
+14 - Backlog,14.2,"Given that a user has sent a transfer to backlog at “Job: Create SIP(s)?""
 
 When the user downloads the transfer from the backlog
 ","- [ ] Then the package that is downloaded from the backlog will be a valid bag AND
 - [ ] it will contain a transfer METS file",,High,None,
-14 - Backlog,14.2,"Given that a transfer is in the backlog
+14 - Backlog,14.3,"Given that a transfer is in the backlog
 
 When the user searches the backlog using the search interface on the Backlog tab","- [ ] Then searches should be successful across all search parameters (file name, file extension, accession number, ingest date, SIP UUID)
 (Note: some search parameters require keyword vs phrase or vice versa; searching is case sensitive)",,High,None,
-14 - Backlog,14.3,"Given that a transfer is in the backlog
+14 - Backlog,14.4,"Given that a transfer is in the backlog
 
 When the user creates a delete request and the delete request is approved in the Storage Service",- [ ] Then the transfer should be removed from the backlog,,Medium,None,
 15 - Appraisal,15.1,"Given that a transfer is in the backlog
@@ -260,7 +275,7 @@ When the user opens the Visualizations on the Analysis pane > Objects","- [ ] Th
 And the transfer was processed with ""Examine contents"" set to Yes
 
 When the user selects PII or Credit card numbers on the Analysis pane > Examine contents",- [ ] Then a list of files that contain credit card numbers or social security numbers will be displayed,,Low,None,
-15 - Appraisal,15.1,"Given that the user has selected a browser-renderable file (image, audio, video) on the File list pane
+15 - Appraisal,15.10,"Given that the user has selected a browser-renderable file (image, audio, video) on the File list pane
 
 When the user selects Preview File on the Analysis pane","- [ ] Then the file should be displayed appropriately in the preview window AND
 - [ ] the user should be able to expand file preview pane for an image if using Firefox AND
@@ -298,7 +313,7 @@ When the user clicks ""Reload""",- [ ] Then the Arrangement pane should be reloa
 15 - Appraisal,15.19,"Given that the ArchivesSpace integration is configured
 
 When a user clicks on ""Search ArchivesSpace"" in the ArchivesSpace pane",- [ ] Then ArchivesSpace resources should be displayed,,Low,None,
-15 - Appraisal,15.2,"Given that a user has selected an ArchivesSpace resource
+15 - Appraisal,15.20,"Given that a user has selected an ArchivesSpace resource
 
 When the user selects ""Add new child record""","- [ ] Then a metadata form will pop up where the user can add metadata AND
 - [ ] the child record will appear in the Appraisal tab AND
@@ -371,7 +386,7 @@ When the user selects ""Upload DIP to ArchivesSpace"" from the Upload DIP micros
 
 When the user confirms that matching is complete
 ",- [ ] Then the DIP information will be attached to the ArchivesSpace resource as an Instance,,Low,None,
-16 - Access integrations,16.1,"Given that the transfer includes an ArchivesSpace matching CSV with valid data
+16 - Access integrations,16.10,"Given that the transfer includes an ArchivesSpace matching CSV with valid data
 
 When the user selects ""Upload DIP to ArchivesSpace"" from the Upload DIP microservice drop-down
 ","- [ ] Then the user will be taken to the ArchivesSpace matching GUI AND
@@ -390,23 +405,27 @@ When a user selects the storage location from the Store AIP dropdown",- [ ] Then
 When the user selects to reject the transfer/SIP","- [ ] Then the reject microservice will complete successfully AND
 - [ ] the AIP is sent to the rejected directory AND
 - [ ] the AIP can be accessed from the rejected directory",,Medium,,
-17 - Archival Storage,17.3,"Given that an AIP has been stored
+17 - Archival Storage,17.3,"Given that there are AIPS in storage 
 
-When the user searches using the search interface on the Archival Storage tab","- [ ] Then searches should be successful across all search parameters (Any, File path, File extension, AIP UUID, AIP name, Identifiers, Part of AIC, AIC identifier, Transfer metadata, Transfer metadata (other)) AND
-- [ ] the search results should be displayed in the Archival Storage tab
-(Note: some search parameters require keyword vs phrase or vice versa)",,High,None,
+When the user clicks the “Select columns” link at the bottom of the Archival Storage tab
+","- [ ] Then they can deselect one or more of the currently displayed default columns and can select one or more new column options (“AIC”, “File count”, “Accession numbers”, “Location”, “Created”, “Status”) in their place.
+- [ ] The columns displayed in the table list on the Archival Storage tab match the selected and deselected options from the “Select columns” dropdown.
+- [ ] These selections are applied to all users of the same pipeline.
+- [ ] The select and deselect choices persist between user sessions.",,Low,None,
 17 - Archival Storage,17.4,"Given that there are AIPs in storage
 
-When the user does a search with ""Show files?"" selected",- [ ] Then the search results should show individual files,,High,,
+When the user does a search with ""Show files?"" selected","- [ ] These ""Select columns"" options also apply to the “Show files” display option (except “AIC”, “File Count” “Created”, and “Encrypted”).",,High,,
+17 - Archival Storage,17.5,"Given that there are AIPs in storage
+
+When the user clicks the “Download CSV” link at the top right of the Archival Storage tab","- [ ]  Then the user will be presented with a “Save as” dialog box so that they can choose the location to store the CSV file on their computer, as well as change the default file name.
+- [ ] The CSV file will contain information about all the AIP packages in Archival Storage, not just those currently displayed on the user's Archival Storage tab page.
+- [ ] The CSV file will include columns for all the available information about AIPs, not just those currently selected for display on the user's Archival Storage tab page.",,Low,None,
 17 - Archival Storage,17.5,"Given that an AIP has been stored
 
-When the user clicks on the name or UUID of the AIP",- [ ] Then the user should be taken to the AIP information page,,High,Excellent,
+When the user clicks on the name or UUID of the AIP",- [ ] These selections are applied to all users of the same pipeline.,,High,Excellent,
 17 - Archival Storage,17.6,"Given that the user has done a search in the Archival Storage tab
 
-When the user clicks on ""Create an AIC""","- [ ] Then a metadata form will open where the user can enter AIC metadata AND
-- [ ] once the form is saved, the AIC will appear in the Ingest tab where it can be processed AND
-- [ ] the AIC microservices will complete successfully AND
-- [ ] the resulting AIC AIP will conform to the criteria for an AIC",,Medium,,
+When the user clicks on ""Create an AIC""",- [ ] The select and deselect choices persist between user sessions.,,Medium,,
 17 - Archival Storage,17.7,"Given that an AIP has been stored and the user has navigated to the AIP storage page
 
 When the user clicks on ""Download""",- [ ] Then the AIP should be downloaded,,High,,
@@ -515,7 +534,7 @@ When the user selects ""Calculate disk usage”",- [ ] Then the disk usage will 
 When the user selects ""Clear"" for one of the storage locations","- [ ] Then the user will be prompted to confirm the choice AND
 - [ ] the folder will be cleared AND
 - [ ] the usage will reset to 4.0KB",,Medium,None,
-20 - Administration,20.1,"Given that the credentials have been added to the DIP Upload page for an AtoM, Binder, or ArchivesSpace instance
+20 - Administration,20.10,"Given that the credentials have been added to the DIP Upload page for an AtoM, Binder, or ArchivesSpace instance
 
 When the user uploads a DIP to those systems",- [ ] Then DIP upload will be successful,,High,,
 20 - Administration,20.11,"Given that the PREMIS agent identifier value, name, and type have been set
