@@ -107,7 +107,7 @@ When a transfer with files that have been manually normalized outside of Archive
 
 With “Normalization” set to None and “Approve normalization” set to None in the default processing config, process a transfer using *SampleTransfers/AccessCopies*, “Job: Normalize” should only give three options - choose “Normalize for preservation”.
 - [ ] Originals should be .png AND
-- [ ] No preservation copies should be generated (PNG is already considered a preservation format) AND 
+- [ ] No preservation copies should be generated (PNG is already considered a preservation format) AND
 - [ ] Access copies should be .gif
 
 ### 2.7
@@ -115,7 +115,7 @@ With “Normalization” set to None and “Approve normalization” set to None
 **Severity**: Medium
 
 With “Normalization” set to None and “Approve normalization” set to None in the default processing config, run SampleTransfers/ServiceCopies transfer and choose “Normalize service files for access”.
-- [ ] "Job Normalize service files for access" should run AND 
+- [ ] "Job Normalize service files for access" should run AND
 - [ ] the task output should show that the service files were used to create access copies.
 
 ### 2.8
