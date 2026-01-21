@@ -5,7 +5,25 @@ repository](https://github.com/archivematica/Issues) when we do regression
 testing for a release.
 
 The issue template is generated from the **regression-testing-checklist.csv**
-file in this repository. To create a new issue template:
+file in this repository.
+
+## Generate the template with Python
+
+Run the provided script from the repository root:
+
+```bash
+python3 generate_issue_template.py
+```
+
+The script only depends on the Python standard library. It reads
+`regression-testing-checklist.csv` and overwrites
+`.github/ISSUE_TEMPLATE/issue_template.md` with the rendered template using the
+same formatting as the OpenRefine workflow. Use the `--csv` or `--output`
+arguments if you need to point to different files.
+
+## Legacy OpenRefine workflow
+
+If you prefer to regenerate the file manually, follow the previous process:
 
 1. Load the CSV into OpenRefine
 2. Apply changes/cleanup as needed
